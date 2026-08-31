@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --brand-dark: #121212;
+    --brand-accent: #C5A059; /* Muted Premium Gold */
+    --text-main: #333333;
+    --text-muted: #666666;
+    --bg-light: #F9FAFB;
+    --bg-white: #FFFFFF;
+    --border-color: #EEEEEE;
+    --shadow-soft: 0 10px 30px -10px rgba(0,0,0,0.08);
+}
+
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Typography Overhaul */
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+/* Modern Header */
+header {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--brand-dark);
+    text-decoration: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--brand-dark);
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 40px;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+nav a:hover, nav a.active {
+    opacity: 1;
+    color: var(--brand-accent);
+}
+
+/* Hero Section - Aimadi Layout */
+.hero-v5 {
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--bg-light);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--brand-accent);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.hero-v5 h1 {
+    font-size: 64px;
+    line-height: 1.1;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    color: var(--brand-dark);
+}
+
+.hero-v5 p {
+    font-size: 20px;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto 48px;
+}
+
+.btn-primary {
+    padding: 18px 40px;
+    background: var(--brand-dark);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.2);
+}
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 80px;
+    padding: 40px;
+    border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Ecosystem Grid - Core Match with Aimadi */
+.eco-section {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.eco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 60px;
+}
+
+.eco-card {
+    background: var(--bg-white);
+    padding: 48px;
+    border-radius: 24px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.4s;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.eco-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--brand-accent);
+}
+
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background: var(--bg-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.eco-card h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+}
+
+.eco-card p {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.arrow-link {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--brand-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Visual Feature Section */
+.feature-row {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding: 120px 0;
+}
+
+.feature-content {
+    flex: 1;
+}
+
+.feature-image {
+    flex: 1.2;
+    position: relative;
+}
+
+.feature-image img {
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.15);
+}
+
+/* Testimonials & FAQs */
+.faq-grid {
+    max-width: 800px;
+    margin: 60px auto 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 24px 0;
+}
+
+.faq-question {
+    font-weight: 700;
+    font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .eco-grid { grid-template-columns: 1fr; }
+    .hero-v5 h1 { font-size: 40px; }
+    .feature-row { flex-direction: column; text-align: center; }
+}

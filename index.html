@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stark Hardware | Heavy Duty Commercial Sanitary Ware</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root { --primary: #0052FF; --bg: #FFFFFF; --text-dark: #0F172A; --text-muted: #64748B; --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-dark); }
+        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); height: 80px; display: flex; align-items: center; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
+        nav a { text-decoration: none; color: var(--text-dark); margin-left: 2.5rem; font-weight: 600; opacity: 0.7; transition: 0.3s; }
+        nav a:hover { opacity: 1; color: var(--primary); }
+        .hero { padding: 180px 0 100px; text-align: center; background: radial-gradient(circle at top right, rgba(0, 82, 255, 0.05), transparent); }
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; }
+        .cta-btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; box-shadow: 0 10px 20px rgba(0, 82, 255, 0.3); }
+        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 60px; }
+        .product-card { position: relative; border-radius: 24px; overflow: hidden; height: 450px; box-shadow: var(--shadow); }
+        .product-card img { width: 100%; height: 100%; object-fit: cover; }
+        .product-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
+        footer { background: var(--text-dark); color: white; padding: 80px 0; text-align: center; }
+    </style>
+</head>
+<body>
+<header><div class="container nav-inner"><a href="index.html" class="logo">STARK.</a><nav><a href="index.html" style="color:var(--primary); opacity:1;">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="tel:18522089987">Call: 18522089987</a></nav></div></header>
+<main>
+    <section class="hero"><div class="container"><h1>Expert Manufacturer of <br>Commercial Sanitary Ware</h1><p style="font-size:1.2rem; color:var(--text-muted); margin-bottom:2rem;">Heavy-duty brass solutions for global hospitals, schools, and infrastructure projects.</p><a href="products.html" class="cta-btn">View All Products →</a></div></section>
+    <section class="container" style="padding-bottom:100px;">
+        <div class="product-grid">
+            <div class="product-card"><img src="https://sc04.alicdn.com/kf/A549f32b46f914ccd8f09397afe33c983V.jpg" alt="Delay Valve"><div class="product-overlay"><h3>Delay Valve Series</h3><p>Foot Pedal & Push Solutions</p></div></div>
+            <div class="product-card"><img src="https://sc04.alicdn.com/kf/A3a426334852b4f42889bd39b1a3d2c85M.jpg" alt="Induction"><div class="product-overlay"><h3>Induction Series</h3><p>Touchless Technology</p></div></div>
+            <div class="product-card"><img src="https://sc04.alicdn.com/kf/Ac319c27831f544beac5de9ad71345e89k.jpg" alt="SS304"><div class="product-overlay"><h3>304 SS Series</h3><p>Vandal Resistant Designs</p></div></div>
+        </div>
+    </section>
+</main>
+<footer><div class="container"><h2>Ready for a Better Project?</h2><p>Email: dadadajiehui@gmail.com | Phone: +86 18522089987</p><p style="margin-top:1rem; opacity:0.5;">Address: Section A, Phase I, Plumbing City, Luncang Town, Nanan, Fujian, China</p></div></footer>
+</body>
+</html>
