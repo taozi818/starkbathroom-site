@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0052FF;
-            --primary-dark: #003EB3;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
-            --bg-light: #F8FAFC;
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.4);
+            --primary: #D4AF37; /* Brushed Gold */
+            --primary-dark: #B3922E;
+            --text-light: #F8FAFC;
+            --text-muted: #94A3B8;
+            --bg-body: #090D16; /* Deep Basalt Dark */
+            --bg-card: #131929; /* Slate Carbon Card */
+            --glass-bg: rgba(9, 13, 22, 0.8);
+            --glass-border: rgba(214, 175, 55, 0.15);
             --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -28,8 +29,8 @@
         }
 
         body {
-            background-color: #FFFFFF;
-            color: var(--text-dark);
+            background-color: var(--bg-body);
+            color: var(--text-light);
             overflow-x: hidden;
             line-height: 1.6;
         }
@@ -45,7 +46,7 @@
             padding: 0 2rem;
         }
 
-        /* Glassmorphic Sticky Header */
+        /* Glassmorphic Sticky Header - Dark Version */
         header {
             position: fixed;
             top: 0;
@@ -64,8 +65,8 @@
 
         header.scrolled {
             height: 75px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            background: rgba(9, 13, 22, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .nav-inner {
@@ -77,6 +78,7 @@
 
         .logo-container img {
             height: 50px;
+            filter: brightness(1.1) contrast(1.1);
             transition: var(--transition-smooth);
         }
 
@@ -92,11 +94,12 @@
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-light);
             font-weight: 500;
             font-size: 0.95rem;
             transition: var(--transition-smooth);
             position: relative;
+            opacity: 0.8;
         }
 
         nav a::after {
@@ -116,17 +119,18 @@
 
         nav a:hover {
             color: var(--primary);
+            opacity: 1;
         }
 
-        /* Language Switcher Button */
+        /* Language Switcher Button - Dark Gold style */
         .lang-switcher {
             position: relative;
             display: inline-block;
         }
 
         .lang-btn {
-            background: rgba(0, 82, 255, 0.05);
-            border: 1px solid rgba(0, 82, 255, 0.1);
+            background: rgba(212, 175, 55, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.2);
             padding: 0.6rem 1.2rem;
             border-radius: 50px;
             color: var(--primary);
@@ -141,7 +145,7 @@
 
         .lang-btn:hover {
             background: var(--primary);
-            color: #FFFFFF;
+            color: #090D16;
             border-color: var(--primary);
         }
 
@@ -149,10 +153,10 @@
             position: absolute;
             top: 120%;
             right: 0;
-            background: #FFFFFF;
-            border: 1px solid rgba(0,0,0,0.06);
+            background: #131929;
+            border: 1px solid var(--glass-border);
             border-radius: 16px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
             width: 160px;
             opacity: 0;
             visibility: hidden;
@@ -171,7 +175,7 @@
         .lang-dropdown a {
             display: block;
             padding: 0.8rem 1.2rem;
-            color: var(--text-dark);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -180,17 +184,17 @@
         }
 
         .lang-dropdown a:hover {
-            background: var(--bg-light);
+            background: #1C243B;
             color: var(--primary);
             padding-left: 1.5rem;
         }
 
-        /* 3D Parallax Hero Section */
+        /* 3D Parallax Hero Section - Ultra Deep Dark */
         .hero {
             position: relative;
             height: 100vh;
             min-height: 800px;
-            background-color: var(--text-dark);
+            background-color: #05070E;
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -203,7 +207,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.85)), url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg');
+            background-image: linear-gradient(rgba(5, 7, 14, 0.6), rgba(5, 7, 14, 0.95)), url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg');
             background-size: cover;
             background-position: center;
             transform: scale(1.05);
@@ -218,7 +222,7 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 850px;
             padding-top: 50px;
         }
 
@@ -228,14 +232,17 @@
             line-height: 1.1;
             margin-bottom: 1.5rem;
             letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #FFFFFF 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: rgba(255,255,255,0.7);
+            color: var(--text-muted);
             margin-bottom: 3rem;
             font-weight: 300;
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .cta-group {
@@ -257,38 +264,40 @@
 
         .btn-primary {
             background-color: var(--primary);
-            color: #FFFFFF;
-            box-shadow: 0 15px 35px rgba(0, 82, 255, 0.35);
+            color: #090D16;
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            background-color: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 82, 255, 0.45);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
         }
 
         .btn-secondary {
             background-color: transparent;
             color: #FFFFFF;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
             backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255,255,255,0.1);
-            border-color: #FFFFFF;
+            background-color: rgba(255,255,255,0.05);
+            border-color: var(--primary);
+            color: var(--primary);
             transform: translateY(-3px);
         }
 
-        /* Trust Stats Bar */
+        /* Stats Bar - Carbon Dark Style */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3rem;
-            background: #FFFFFF;
+            background: var(--bg-card);
             border-radius: 24px;
             padding: 3rem;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.06);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 100px rgba(0,0,0,0.4);
             margin-top: -100px;
             position: relative;
             z-index: 10;
@@ -296,7 +305,7 @@
 
         .stat-card {
             text-align: center;
-            border-right: 1px solid rgba(0,0,0,0.06);
+            border-right: 1px solid var(--glass-border);
         }
 
         .stat-card:last-child {
@@ -309,6 +318,7 @@
             color: var(--primary);
             line-height: 1;
             margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
         }
 
         .stat-label {
@@ -317,10 +327,10 @@
             font-weight: 500;
         }
 
-        /* B2B Advantage / About Section */
+        /* About Section */
         .about-section {
             padding: 10rem 0;
-            background-color: #FFFFFF;
+            background-color: var(--bg-body);
         }
 
         .section-header {
@@ -343,7 +353,7 @@
             font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            color: var(--text-dark);
+            color: var(--text-light);
         }
 
         .grid-2 {
@@ -358,6 +368,7 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            color: #FFFFFF;
         }
 
         .about-text p {
@@ -372,11 +383,13 @@
             margin-bottom: 2rem;
             padding: 1.5rem;
             border-radius: 16px;
+            border: 1px solid transparent;
             transition: var(--transition-smooth);
         }
 
         .advantage-card:hover {
-            background-color: var(--bg-light);
+            background-color: var(--bg-card);
+            border-color: var(--glass-border);
             transform: translateX(10px);
         }
 
@@ -384,19 +397,21 @@
             width: 60px;
             height: 60px;
             border-radius: 50px;
-            background: rgba(0, 82, 255, 0.08);
+            background: rgba(212, 175, 55, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
             font-size: 1.5rem;
             flex-shrink: 0;
+            border: 1px solid rgba(212, 175, 55, 0.15);
         }
 
         .adv-content h3 {
             font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            color: #FFFFFF;
         }
 
         .adv-content p {
@@ -405,10 +420,12 @@
             margin: 0;
         }
 
-        /* 3D Space & Craft Interactive Gallery */
+        /* Showcase Gallery */
         .showcase-gallery {
-            background-color: var(--bg-light);
+            background-color: #05070E;
             padding: 8rem 0;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
         }
 
         .showcase-tabs {
@@ -419,22 +436,23 @@
         }
 
         .tab-btn {
-            background: #FFFFFF;
-            border: 1px solid rgba(0,0,0,0.06);
+            background: var(--bg-card);
+            border: 1px solid var(--glass-border);
             padding: 0.9rem 2rem;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.95rem;
+            color: var(--text-muted);
             cursor: pointer;
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--primary);
-            color: #FFFFFF;
+            color: #090D16;
             border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(0, 82, 255, 0.25);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.25);
         }
 
         .gallery-viewport {
@@ -442,7 +460,8 @@
             border-radius: 24px;
             overflow: hidden;
             height: 550px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
         }
 
         .gallery-slide {
@@ -472,7 +491,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            background: linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent);
             z-index: 1;
         }
 
@@ -487,6 +506,7 @@
             font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         .gallery-info p {
@@ -495,10 +515,10 @@
             font-weight: 300;
         }
 
-        /* Certifications Backing Section */
+        /* Certifications Backing Section - Gold Accented */
         .cert-section {
             padding: 8rem 0;
-            background: #FFFFFF;
+            background: var(--bg-body);
         }
 
         .cert-grid {
@@ -509,7 +529,8 @@
         }
 
         .cert-card {
-            border: 1px solid rgba(0,0,0,0.05);
+            background-color: var(--bg-card);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 2.5rem;
             text-align: center;
@@ -517,22 +538,27 @@
         }
 
         .cert-card:hover {
-            box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.08);
             transform: translateY(-8px);
-            border-color: rgba(0, 82, 255, 0.15);
+            border-color: var(--primary);
         }
 
         .cert-card img {
             height: 140px;
             object-fit: contain;
             margin-bottom: 2rem;
+            filter: grayscale(1) brightness(1.2);
             transition: var(--transition-smooth);
+        }
+
+        .cert-card:hover img {
+            filter: grayscale(0) brightness(1);
         }
 
         .cert-card h3 {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: #FFFFFF;
             margin-bottom: 0.5rem;
         }
 
@@ -541,16 +567,17 @@
             color: var(--text-muted);
         }
 
-        /* High-Interactivity Inquiry CTA Floating Box */
+        /* Inquiry CTA Floating Box */
         .inquiry-banner {
-            background-color: var(--text-dark);
+            background-color: var(--bg-card);
             border-radius: 32px;
             padding: 6rem;
             color: #FFFFFF;
             position: relative;
             overflow: hidden;
             margin-bottom: -100px;
-            box-shadow: 0 30px 80px rgba(0, 82, 255, 0.15);
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
         }
 
         .inquiry-banner::before {
@@ -561,7 +588,7 @@
             width: 800px;
             height: 800px;
             border-radius: 500px;
-            background: radial-gradient(circle, rgba(0, 82, 255, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
         }
 
         .inquiry-banner-inner {
@@ -578,16 +605,17 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
+            color: #FFFFFF;
         }
 
         .inquiry-banner-text p {
             font-size: 1.2rem;
-            color: rgba(255,255,255,0.7);
+            color: var(--text-muted);
             font-weight: 300;
             max-width: 600px;
         }
 
-        /* Interactive Inquiry Modal Form */
+        /* Modular Inquiry Form - Golden Trim */
         .modal {
             position: fixed;
             top: 0;
@@ -595,7 +623,7 @@
             width: 100%;
             height: 100%;
             z-index: 2000;
-            background: rgba(15, 23, 42, 0.6);
+            background: rgba(5, 7, 14, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             display: flex;
@@ -612,16 +640,17 @@
         }
 
         .modal-card {
-            background: #FFFFFF;
+            background: var(--bg-card);
             border-radius: 28px;
             width: 100%;
             max-width: 650px;
             padding: 3rem;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
+            border: 1px solid var(--glass-border);
             position: relative;
             transform: scale(0.9);
             transition: var(--transition-smooth);
+            color: #FFFFFF;
         }
 
         .modal.active .modal-card {
@@ -632,7 +661,7 @@
             position: absolute;
             top: 2rem;
             right: 2rem;
-            background: rgba(0,0,0,0.03);
+            background: rgba(255,255,255,0.05);
             border: none;
             width: 40px;
             height: 40px;
@@ -642,13 +671,13 @@
             align-items: center;
             justify-content: center;
             font-size: 1.1rem;
-            color: var(--text-dark);
+            color: var(--text-light);
             transition: var(--transition-smooth);
         }
 
         .close-btn:hover {
             background: var(--primary);
-            color: #FFFFFF;
+            color: #090D16;
         }
 
         .form-group {
@@ -660,38 +689,40 @@
             font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.6rem;
-            color: var(--text-dark);
+            color: var(--text-light);
         }
 
         .form-control {
             width: 100%;
             padding: 1rem 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background: var(--bg-light);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            background: var(--bg-body);
             font-size: 0.95rem;
+            color: #FFFFFF;
             transition: var(--transition-smooth);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.1);
+            background: #1C243B;
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
         }
 
-        /* Global Footer */
+        /* Global Footer - Dark Steel */
         footer {
-            background-color: var(--text-dark);
+            background-color: #05070E;
             color: #FFFFFF;
             padding: 14rem 0 4rem;
+            border-top: 1px solid var(--glass-border);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 4rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             padding-bottom: 6rem;
             margin-bottom: 4rem;
         }
@@ -701,10 +732,11 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
+            color: var(--primary);
         }
 
         .footer-brand p {
-            color: rgba(255,255,255,0.6);
+            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -715,7 +747,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
-            position: relative;
+            color: #FFFFFF;
         }
 
         .footer-links ul {
@@ -727,7 +759,7 @@
         }
 
         .footer-links ul li a {
-            color: rgba(255,255,255,0.6);
+            color: var(--text-muted);
             text-decoration: none;
             transition: var(--transition-smooth);
             font-size: 0.95rem;
@@ -742,7 +774,7 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            color: rgba(255,255,255,0.6);
+            color: var(--text-muted);
             font-size: 0.95rem;
             margin-bottom: 1.2rem;
         }
@@ -762,17 +794,20 @@
             width: 44px;
             height: 44px;
             border-radius: 50px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.03);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFFFFF;
             text-decoration: none;
             transition: var(--transition-smooth);
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
         .social-icon:hover {
             background-color: var(--primary);
+            color: #090D16;
+            border-color: var(--primary);
             transform: translateY(-3px);
         }
 
@@ -780,11 +815,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             font-size: 0.9rem;
         }
 
-        /* Interactive Floating WhatsApp/WeChat widget */
+        /* Communication floating button widget */
         .floating-widget {
             position: fixed;
             bottom: 2rem;
@@ -804,7 +839,7 @@
             justify-content: center;
             color: #FFFFFF;
             font-size: 1.8rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
             transition: var(--transition-smooth);
             cursor: pointer;
             text-decoration: none;
@@ -820,12 +855,13 @@
 
         .widget-email {
             background-color: var(--primary);
+            color: #090D16;
         }
     </style>
 </head>
 <body>
 
-    <!-- STICKY HEADER -->
+    <!-- HEADER -->
     <header id="main-header">
         <div class="container nav-inner">
             <a href="index.html" class="logo-container">
@@ -835,7 +871,7 @@
                 <a href="index.html" class="active" data-tr="nav_home">Home</a>
                 <a href="products.html" data-tr="nav_products">Products</a>
                 <a href="services.html" data-tr="nav_services">Services</a>
-                <!-- Hexagonal Language Dropdown -->
+                <!-- Language drop block -->
                 <div class="lang-switcher">
                     <button class="lang-btn"><i class="fa-solid fa-globe"></i> <span id="current-lang">English</span> <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="lang-dropdown">
@@ -866,7 +902,7 @@
         </div>
     </section>
 
-    <!-- FLOATING STATS BAR -->
+    <!-- TRUST STATS BAR -->
     <section class="container" style="position: relative; z-index: 10;">
         <div class="stats-grid">
             <div class="stat-card">
@@ -888,7 +924,7 @@
         </div>
     </section>
 
-    <!-- B2B COMPANY ADVANTAGE SECTION -->
+    <!-- ADVANTAGE SECTION -->
     <section class="about-section">
         <div class="container">
             <div class="section-header">
@@ -920,7 +956,7 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE CRAFT GALLERY -->
+    <!-- MANUFACTURING GALLERY -->
     <section class="showcase-gallery">
         <div class="container">
             <div class="section-header">
@@ -1131,7 +1167,7 @@
                 hero_subtitle: "20余年专注制造，坐落于中国卫浴水暖之乡——福建南安仑苍，掌握核心工艺流程。",
                 hero_cta_primary: "浏览产品", hero_cta_secondary: "获取报价",
                 stat_exp: "年 OEM/ODM 研发经验", stat_contract: "恪守合同与诚信契约", stat_cert: "国际质量标准认证", stat_sample: "7-15天快速出样",
-                about_tag: "关于斯塔克", about_title: "全球卫浴五金卓越供应链",
+                about_tag: "关于斯塔克", about_title: "全球卫浴五金供应链",
                 about_subtitle: "南安英都斯塔克五金有限公司",
                 about_p: "公司位于中国最大的水暖卫浴产业基地——福建南安仑苍镇。借助完整的产业链集群优势（铸造、精密加工、电镀、装配、检测），为全球买家提供极具成本优势的高效服务。",
                 adv1_title: "重诚信与契约精神", adv1_desc: "严格履行每一项契约承诺，确保准时交货、品质如一，与美、欧、澳等地买家建立长久战略合作关系。",
@@ -1197,12 +1233,12 @@
                 stat_exp: "Jahre OEM/ODM Erfahrung", stat_contract: "Vertragstreue", stat_cert: "WaterMark Zertifiziert", stat_sample: "Tage Schnelle Bemusterung",
                 about_tag: "Warum Stark", about_title: "Globale Sanitärfertigung auf Höchstem Niveau",
                 about_subtitle: "Nan'an Yingdu Stark Hardware Co., Ltd.",
-                about_p: "Strategisch günstig gelegen in Luncang Town, Provinz Fujian - Chinas wichtigster 'Heimat des Sanitär- und Heizungshandwerks'. Wir nutzen Hunderte von führenden Unternehmen in unserem Industriecluster und bieten vollintegriertes Design, Guss, Präzisionsbearbeitung, Galvanisierung und Montage.",
+                about_p: "Strategisch günstig gelegen in Luncang Town, Provinz Modell - Chinas wichtigster 'Heimat des Sanitär- und Heizungshandwerks'. Wir nutzen Hunderte von führenden Unternehmen in unserem Industriecluster und bieten vollintegriertes Design, Guss, Präzisionsbearbeitung, Galvanisierung und Montage.",
                 adv1_title: "Integrität & Vertragstreue", adv1_desc: "Strikte Einhaltung jeder Zusage, Gewährleistung pünktlicher Lieferung, gleichbleibender Qualität und transparenter Kommunikation für Käufer in Amerika, Europa und Australien.",
                 adv2_title: "Starke Innovation & Entwicklung", adv2_desc: "Unabhängiges F&E-Zentrum, das jährlich innovative Kollektionen auf den Markt bringt, die berührungslose Sensoren und wassersparende Technologien integrieren.",
                 gallery_tag: "Unsere Fertigung", gallery_title: "Unerreichte Produktionskontrolle",
                 tab_factory: "Fabrikansicht", tab_cnc: "Präzisions-CNC", tab_assembly: "Montageband", tab_warehouse: "Logistiklager",
-                slide0_title: "Modernes Industriegebäude", slide0_desc: "Das Hotel liegt in Luncang, Provinz Fujian, und umfasst groß angelegte integrierte Produktionslinien.",
+                slide0_title: "Modernes Industriegebäude", slide0_desc: "Das Hotel liegt in Luncang, Provinz Modell, und umfasst groß angelegte integrierte Produktionslinien.",
                 slide1_title: "Präzisions-CNC-Bearbeitung", slide1_desc: "Hochpräzise CNC-Arbeitsplätze garantieren perfekte Gewinde und leckagefreie Funktion.",
                 slide2_title: "Montagelinie nach ISO-Standard", slide2_desc: "Strenge Dichtheits- und Druckprüfungen gewährleisten 100%ige Haltbarkeit und Betriebssicherheit.",
                 slide3_title: "Exportverpackung & Logistik", slide3_desc: "Spezielle Schutzverpackungen schützen die Ware auf dem Seeweg bei FOB/CIF-Lieferungen.",
@@ -1216,7 +1252,7 @@
                 banner_btn: "Jetzt Anfrage Senden",
                 footer_desc: "Ihr zuverlässiger B2B-Partner für Sanitärfertigung. Spezialisiert auf designorientierte Armaturen und höchste Vertragstreue.",
                 footer_menu: "Hauptmenü", footer_support: "Support", footer_head: "Hauptsitz",
-                footer_address: "Phase 1, Sektor A, Luncang Plumbing Town, Nan'an, Quanzhou, Provinz Fujian, China",
+                footer_address: "Phase 1, Sektor A, Luncang Plumbing Town, Nan'an, Quanzhou, Provinz Modell, China",
                 modal_title: "B2B-Fertigungsanfrage", modal_name: "Ihr Name / Unternehmen",
                 modal_email: "E-Mail-Adresse", modal_msg: "Anfragedetails (Modell, Menge, OEM-Anforderungen)",
                 modal_submit: "Anfrage Absenden"
@@ -1256,7 +1292,7 @@
             vi: {
                 nav_home: "Trang Chủ", nav_products: "Sản Phẩm", nav_services: "Dịch Vụ",
                 hero_title: "Nhà Sản Xuất Thiết Bị Vệ Sinh & Thiết Bị Đường Ống Cao Cấp",
-                hero_subtitle: "Hơn 20 năm kinh nghiệm chế tạo hoàn hảo, trực tiếp từ Thủ phủ Thiết bị vệ sinh huyền thoại Trung Quốc - Thị trấn Luân Thương, Nam An.",
+                hero_subtitle: "Hơn 20 năm kinh nghiệm chế tạo hoàn hảo, trực tiếp từ Thiết bị vệ sinh huyền thoại Luân Thương, Nam An.",
                 hero_cta_primary: "Khám Phá Sản Phẩm", hero_cta_secondary: "Nhận Báo Giá",
                 stat_exp: "Năm Kinh nghiệm OEM/ODM", stat_contract: "Uy Tín & Cam Kết", stat_cert: "Chứng Nhận WaterMark/CE", stat_sample: "Ngày Làm Mẫu Nhanh",
                 about_tag: "Tại Sao Chọn Stark", about_title: "Nhà Máy Sản Xuất Thiết Bị Vệ Sinh Đạt Tiêu Chuẩn Toàn Cầu",
