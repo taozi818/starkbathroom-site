@@ -3,41 +3,1383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Hardware | Heavy Duty Commercial Sanitary Ware</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Stark Bathroom Hardware | Premier Commercial Sanitary Solutions</title>
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #0052FF; --bg: #FFFFFF; --text-dark: #0F172A; --text-muted: #64748B; --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-dark); }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); height: 80px; display: flex; align-items: center; }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-        nav a { text-decoration: none; color: var(--text-dark); margin-left: 2.5rem; font-weight: 600; opacity: 0.7; transition: 0.3s; }
-        nav a:hover { opacity: 1; color: var(--primary); }
-        .hero { padding: 180px 0 100px; text-align: center; background: radial-gradient(circle at top right, rgba(0, 82, 255, 0.05), transparent); }
-        .hero h1 { font-size: 4.5rem; line-height: 1.1; font-weight: 800; letter-spacing: -2px; margin-bottom: 1.5rem; }
-        .cta-btn { display: inline-block; padding: 18px 40px; background: var(--primary); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; box-shadow: 0 10px 20px rgba(0, 82, 255, 0.3); }
-        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 60px; }
-        .product-card { position: relative; border-radius: 24px; overflow: hidden; height: 450px; box-shadow: var(--shadow); }
-        .product-card img { width: 100%; height: 100%; object-fit: cover; }
-        .product-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(transparent, rgba(0,0,0,0.8)); color: white; }
-        footer { background: var(--text-dark); color: white; padding: 80px 0; text-align: center; }
+        :root {
+            --primary: #0052FF;
+            --primary-dark: #003EB3;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --bg-light: #F8FAFC;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* RTL adjustments for Arabic */
+        [dir="rtl"] {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Glassmorphic Sticky Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            height: 75px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-container img {
+            height: 50px;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .logo-container img {
+            height: 42px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Language Switcher Button */
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: rgba(0, 82, 255, 0.05);
+            border: 1px solid rgba(0, 82, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            z-index: 1100;
+            overflow: hidden;
+        }
+
+        .lang-switcher:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-dropdown a {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            text-align: left;
+        }
+
+        .lang-dropdown a:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        /* 3D Parallax Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 800px;
+            background-color: var(--text-dark);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            color: #FFFFFF;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.85)), url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.05);
+            transition: transform 12s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding-top: 50px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            box-shadow: 0 15px 35px rgba(0, 82, 255, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 82, 255, 0.45);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #FFFFFF;
+            border: 1px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: #FFFFFF;
+            transform: translateY(-3px);
+        }
+
+        /* Trust Stats Bar */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.06);
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .stat-card {
+            text-align: center;
+            border-right: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .stat-card:last-child {
+            border-right: none;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* B2B Advantage / About Section */
+        .about-section {
+            padding: 10rem 0;
+            background-color: #FFFFFF;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 6rem;
+        }
+
+        .section-tag {
+            color: var(--primary);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .advantage-card {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+        }
+
+        .advantage-card:hover {
+            background-color: var(--bg-light);
+            transform: translateX(10px);
+        }
+
+        .adv-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            background: rgba(0, 82, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .adv-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .adv-content p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* 3D Space & Craft Interactive Gallery */
+        .showcase-gallery {
+            background-color: var(--bg-light);
+            padding: 8rem 0;
+        }
+
+        .showcase-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .tab-btn {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.06);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 82, 255, 0.25);
+        }
+
+        .gallery-viewport {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            height: 550px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.08);
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            z-index: 1;
+        }
+
+        .gallery-info {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+            max-width: 600px;
+        }
+
+        .gallery-info h3 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-info p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            font-weight: 300;
+        }
+
+        /* Certifications Backing Section */
+        .cert-section {
+            padding: 8rem 0;
+            background: #FFFFFF;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .cert-card {
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .cert-card:hover {
+            box-shadow: 0 25px 60px rgba(0,0,0,0.06);
+            transform: translateY(-8px);
+            border-color: rgba(0, 82, 255, 0.15);
+        }
+
+        .cert-card img {
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .cert-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* High-Interactivity Inquiry CTA Floating Box */
+        .inquiry-banner {
+            background-color: var(--text-dark);
+            border-radius: 32px;
+            padding: 6rem;
+            color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: -100px;
+            box-shadow: 0 30px 80px rgba(0, 82, 255, 0.15);
+        }
+
+        .inquiry-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            border-radius: 500px;
+            background: radial-gradient(circle, rgba(0, 82, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .inquiry-banner-inner {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .inquiry-banner-text h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .inquiry-banner-text p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* Interactive Inquiry Modal Form */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            width: 100%;
+            max-width: 650px;
+            padding: 3rem;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active .modal-card {
+            transform: scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0,0,0,0.03);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
+        }
+
+        .close-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--bg-light);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.1);
+        }
+
+        /* Global Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #FFFFFF;
+            padding: 14rem 0 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 6rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 320px;
+        }
+
+        .footer-links h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 0.5rem;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Interactive Floating WhatsApp/WeChat widget */
+        .floating-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .widget-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .widget-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .widget-wechat {
+            background-color: #07C160;
+        }
+
+        .widget-email {
+            background-color: var(--primary);
+        }
     </style>
 </head>
 <body>
-<header><div class="container nav-inner"><a href="index.html" class="logo">STARK.</a><nav><a href="index.html" style="color:var(--primary); opacity:1;">Home</a><a href="products.html">Products</a><a href="services.html">Services</a><a href="tel:18522089987">Call: 18522089987</a></nav></div></header>
-<main>
-    <section class="hero"><div class="container"><h1>Expert Manufacturer of <br>Commercial Sanitary Ware</h1><p style="font-size:1.2rem; color:var(--text-muted); margin-bottom:2rem;">Heavy-duty brass solutions for global hospitals, schools, and infrastructure projects.</p><a href="products.html" class="cta-btn">View All Products →</a></div></section>
-    <section class="container" style="padding-bottom:100px;">
-        <div class="product-grid">
-            <div class="product-card"><img src="https://sc04.alicdn.com/kf/A549f32b46f914ccd8f09397afe33c983V.jpg" alt="Delay Valve"><div class="product-overlay"><h3>Delay Valve Series</h3><p>Foot Pedal & Push Solutions</p></div></div>
-            <div class="product-card"><img src="https://sc04.alicdn.com/kf/A3a426334852b4f42889bd39b1a3d2c85M.jpg" alt="Induction"><div class="product-overlay"><h3>Induction Series</h3><p>Touchless Technology</p></div></div>
-            <div class="product-card"><img src="https://sc04.alicdn.com/kf/Ac319c27831f544beac5de9ad71345e89k.jpg" alt="SS304"><div class="product-overlay"><h3>304 SS Series</h3><p>Vandal Resistant Designs</p></div></div>
+
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo-container">
+                <img src="https://sc04.alicdn.com/kf/A9fd09c8f7163419ba723398c19a430f7T.jpg" alt="Stark Hardware">
+            </a>
+            <nav>
+                <a href="index.html" class="active" data-tr="nav_home">Home</a>
+                <a href="products.html" data-tr="nav_products">Products</a>
+                <a href="services.html" data-tr="nav_services">Services</a>
+                <!-- Hexagonal Language Dropdown -->
+                <div class="lang-switcher">
+                    <button class="lang-btn"><i class="fa-solid fa-globe"></i> <span id="current-lang">English</span> <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="lang-dropdown">
+                        <a href="javascript:void(0)" onclick="switchLanguage('en')">English</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('ar')">العربية</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('zh')">简体中文</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('de')">Deutsch</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('es')">Español</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('vi')">Tiếng Việt</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 3D HERO BANNER -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-tr="hero_title">Premier Sanitary Ware & Plumbing Hardware</h1>
+                <p data-tr="hero_subtitle">20+ years of manufacturing perfection, directly from China's legendary Plumbing Capital - Luncang Town, Nan'an.</p>
+                <div class="cta-group">
+                    <a href="products.html" class="btn btn-primary" data-tr="hero_cta_primary">Explore Products</a>
+                    <a href="javascript:void(0)" onclick="openModal()" class="btn btn-secondary" data-tr="hero_cta_secondary">Get a Quote</a>
+                </div>
+            </div>
         </div>
     </section>
-</main>
-<footer><div class="container"><h2>Ready for a Better Project?</h2><p>Email: dadadajiehui@gmail.com | Phone: +86 18522089987</p><p style="margin-top:1rem; opacity:0.5;">Address: Section A, Phase I, Plumbing City, Luncang Town, Nanan, Fujian, China</p></div></footer>
+
+    <!-- FLOATING STATS BAR -->
+    <section class="container" style="position: relative; z-index: 10;">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">20+</div>
+                <div class="stat-label" data-tr="stat_exp">Years OEM/ODM Exp</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label" data-tr="stat_contract">Contract Integrity</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">CE/cUPC</div>
+                <div class="stat-label" data-tr="stat_cert">WaterMark Certified</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7-15</div>
+                <div class="stat-label" data-tr="stat_sample">Days Rapid Sampling</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- B2B COMPANY ADVANTAGE SECTION -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-tr="about_tag">Why Choose Stark</span>
+                <h2 class="section-title" data-tr="about_title">Global Sanitary Ware Manufacturing Excellence</h2>
+            </div>
+            <div class="grid-2">
+                <div class="about-text">
+                    <h2 data-tr="about_subtitle">Nan'an Yingdu Stark Hardware Co., Ltd.</h2>
+                    <p data-tr="about_p">Strategically located in Luncang Town, Fujian Province - China's premier "Plumbing and Heating Hometown". We leverage hundreds of leading enterprises within our industrial cluster, offering fully integrated design, casting, precision machining, electroplating, and assembly. This proximity translates to rapid turnarounds and cost optimization for global projects.</p>
+                </div>
+                <div class="about-advantages">
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="adv-content">
+                            <h3 data-tr="adv1_title">Integrity & Contract Spirit</h3>
+                            <p data-tr="adv1_desc">Strict adherence to every commitment, ensuring on-time delivery, consistent quality, and transparent communication across the Americas, Europe, and Australia.</p>
+                        </div>
+                    </div>
+                    <div class="advantage-card">
+                        <div class="adv-icon"><i class="fa-solid fa-microscope"></i></div>
+                        <div class="adv-content">
+                            <h3 data-tr="adv2_title">Powerful Innovation & R&D</h3>
+                            <p data-tr="adv2_desc">Independent R&D center launching cutting-edge collections annually, integrating touchless sensors, constant temperature control, and water-saving tech.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE CRAFT GALLERY -->
+    <section class="showcase-gallery">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-tr="gallery_tag">Our Manufacturing Hub</span>
+                <h2 class="section-title" data-tr="gallery_title">Unparalleled Production Control</h2>
+            </div>
+            <div class="showcase-tabs">
+                <button class="tab-btn active" onclick="switchTab(0)" data-tr="tab_factory">Factory Exterior</button>
+                <button class="tab-btn" onclick="switchTab(1)" data-tr="tab_cnc">CNC Workshop</button>
+                <button class="tab-btn" onclick="switchTab(2)" data-tr="tab_assembly">Assembly Line</button>
+                <button class="tab-btn" onclick="switchTab(3)" data-tr="tab_warehouse">Logistics Warehouse</button>
+            </div>
+            <div class="gallery-viewport">
+                <!-- Slide 0 -->
+                <div class="gallery-slide active" style="background-image: url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg')">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-info">
+                        <h3 data-tr="slide0_title">Modern Industrial Plant</h3>
+                        <p data-tr="slide0_desc">Located in Luncang Plumbing Capital, Fujian Province, covering large-scale integrated production lines.</p>
+                    </div>
+                </div>
+                <!-- Slide 1 -->
+                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/Aa88720c6a82b4a339aa72cd67e7f9b12E.jpg')">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-info">
+                        <h3 data-tr="slide1_title">Precision CNC Machining</h3>
+                        <p data-tr="slide1_desc">High-precision machining workshops guarantee seamless faucet threads and flawless hardware fitting.</p>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/A58b88c72a4684097945c8868647cf7a2Y.jpg')">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-info">
+                        <h3 data-tr="slide2_title">Standards Assembly Line</h3>
+                        <p data-tr="slide2_desc">Rigorous leak-testing and assembly protocols ensure 100% durability and quality certification.</p>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/Adf2f008ad6154299a07d187c389e5dcbh.jpg')">
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-info">
+                        <h3 data-tr="slide3_title">Logistics & Worldwide Packing</h3>
+                        <p data-tr="slide3_desc">Strict export-packaging standards protect goods for smooth maritime transport and FOB/CIF delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTERNATIONAL CERTIFICATION MARKS -->
+    <section class="cert-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" data-tr="cert_tag">Compliance & Quality</span>
+                <h2 class="section-title" data-tr="cert_title">Certified For Global Compliance</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <img src="https://sc04.alicdn.com/kf/A05a9d2b6f92b4c238d7883edf782ae4b4.jpg" alt="WaterMark">
+                    <h3 data-tr="cert1_name">Australia Certification</h3>
+                    <p data-tr="cert1_desc">WaterMark compliant hardware</p>
+                </div>
+                <div class="cert-card">
+                    <img src="https://sc04.alicdn.com/kf/A502b049f4b354b4b966beaefa463c63fN.jpg" alt="CE Mark">
+                    <h3 data-tr="cert2_name">CE & European Directives</h3>
+                    <p data-tr="cert2_desc">Eco-design and metal standards</p>
+                </div>
+                <div class="cert-card">
+                    <img src="https://sc04.alicdn.com/kf/Adf2f008ad6154299a07d187c389e5dcbh.jpg" alt="ISO 9001">
+                    <h3 data-tr="cert3_name">ISO 9001 Management</h3>
+                    <p data-tr="cert3_desc">Strict QA manufacturing process</p>
+                </div>
+                <div class="cert-card">
+                    <img src="https://sc04.alicdn.com/kf/Acec232e10729422bb3426e2fc891d16dF.jpg" alt="cUPC">
+                    <h3 data-tr="cert4_name">North American Standards</h3>
+                    <p data-tr="cert4_desc">Low-lead brass and flow limits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INLINE FLOATING LEAD BANNER -->
+    <section class="container" style="margin-bottom: -100px;">
+        <div class="inquiry-banner">
+            <div class="inquiry-banner-inner">
+                <div class="inquiry-banner-text">
+                    <h2 data-tr="banner_title">Ready To Grow Your Business?</h2>
+                    <p data-tr="banner_desc">Request a custom quote, sample, or ODM catalogs. Our professional international sales team responds within 12 hours.</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary" style="background:#FFFFFF; color:var(--primary); box-shadow:none;" onclick="openModal()" data-tr="banner_btn">Send Inquiry Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>STARK.</h2>
+                    <p data-tr="footer_desc">Your reliable B2B sanitary ware manufacturing partner. Specializing in design-led, contract-spirit hardware fixtures.</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/18522089987" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:dadadajiehui@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_menu">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" data-tr="nav_home">Home</a></li>
+                        <li><a href="products.html" data-tr="nav_products">Products</a></li>
+                        <li><a href="services.html" data-tr="nav_services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_support">Support</h3>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="openModal()" data-tr="hero_cta_secondary">Get a Quote</a></li>
+                        <li><a href="tel:18522089987" data-tr="phone">Call Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_head">Headquarters</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-tr="footer_address">Phase 1, Area A, Luncang Plumbing Town, Nan'an, Quanzhou, Fujian Province, China</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>18522089987</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>dadadajiehui@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-bar">
+                <p>&copy; 2026 Nan'an Yingdu Stark Hardware Co., Ltd. All Rights Reserved.</p>
+                <p>Designed for Global Wholesalers & Distributors.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE INQUIRY MODAL -->
+    <div class="modal" id="inquiry-modal">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="margin-bottom:1.5rem; font-size:1.75rem;" data-tr="modal_title">B2B Manufacturing Inquiry</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div class="form-group">
+                    <label for="name" data-tr="modal_name">Your Name / Company</label>
+                    <input type="text" id="name" class="form-control" required placeholder="e.g. John Doe / Global Plumbing LLC">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-tr="modal_email">Email Address</label>
+                    <input type="email" id="email" class="form-control" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message" data-tr="modal_msg">Required Details (Model, Quantity, OEM requirements)</label>
+                    <textarea id="message" class="form-control" rows="4" required placeholder="Please state estimated quantities, required certifications, or target models..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; border:none; border-radius:12px;" data-tr="modal_submit">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FLOATING COMMUNICATION WIDGET -->
+    <div class="floating-widget">
+        <a href="https://wa.me/18522089987" class="widget-btn widget-wechat" title="WeChat/WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:dadadajiehui@gmail.com" class="widget-btn widget-email" title="Email Inquiry"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <!-- TRANSLATION SCRIPT -->
+    <script>
+        // Language Matrix Dictionary
+        const translation = {
+            en: {
+                nav_home: "Home", nav_products: "Products", nav_services: "Services",
+                hero_title: "Premier Sanitary Ware & Plumbing Hardware",
+                hero_subtitle: "20+ years of manufacturing perfection, directly from China's legendary Plumbing Capital - Luncang Town, Nan'an.",
+                hero_cta_primary: "Explore Products", hero_cta_secondary: "Get a Quote",
+                stat_exp: "Years OEM/ODM Exp", stat_contract: "Contract Integrity", stat_cert: "WaterMark Certified", stat_sample: "Days Rapid Sampling",
+                about_tag: "Why Choose Stark", about_title: "Global Sanitary Ware Manufacturing Excellence",
+                about_subtitle: "Nan'an Yingdu Stark Hardware Co., Ltd.",
+                about_p: "Strategically located in Luncang Town, Fujian Province - China's premier 'Plumbing and Heating Hometown'. We leverage hundreds of leading enterprises within our industrial cluster, offering fully integrated design, casting, precision machining, electroplating, and assembly.",
+                adv1_title: "Integrity & Contract Spirit", adv1_desc: "Strict adherence to every commitment, ensuring on-time delivery, consistent quality, and transparent communication.",
+                adv2_title: "Powerful Innovation & R&D", adv2_desc: "Independent R&D center launching cutting-edge collections annually, integrating touchless sensors and water-saving tech.",
+                gallery_tag: "Our Manufacturing Hub", gallery_title: "Unparalleled Production Control",
+                tab_factory: "Factory Exterior", tab_cnc: "CNC Workshop", tab_assembly: "Assembly Line", tab_warehouse: "Logistics Warehouse",
+                slide0_title: "Modern Industrial Plant", slide0_desc: "Located in Luncang Plumbing Capital, Fujian Province, covering large-scale integrated production lines.",
+                slide1_title: "Precision CNC Machining", slide1_desc: "High-precision machining workshops guarantee seamless faucet threads and flawless hardware fitting.",
+                slide2_title: "Standards Assembly Line", slide2_desc: "Rigorous leak-testing and assembly protocols ensure 100% durability and quality certification.",
+                slide3_title: "Logistics & Worldwide Packing", slide3_desc: "Strict export-packaging standards protect goods for smooth maritime transport and FOB/CIF delivery.",
+                cert_tag: "Compliance & Quality", cert_title: "Certified For Global Compliance",
+                cert1_name: "Australia Certification", cert1_desc: "WaterMark compliant hardware",
+                cert2_name: "CE & European Directives", cert2_desc: "Eco-design and metal standards",
+                cert3_name: "ISO 9001 Management", cert3_desc: "Strict QA manufacturing process",
+                cert4_name: "North American Standards", cert4_desc: "Low-lead brass and flow limits",
+                banner_title: "Ready To Grow Your Business?",
+                banner_desc: "Request a custom quote, sample, or ODM catalogs. Our professional international sales team responds within 12 hours.",
+                banner_btn: "Send Inquiry Now",
+                footer_desc: "Your reliable B2B sanitary ware manufacturing partner. Specializing in design-led, contract-spirit hardware fixtures.",
+                footer_menu: "Quick Links", footer_support: "Support", footer_head: "Headquarters",
+                footer_address: "Phase 1, Area A, Luncang Plumbing Town, Nan'an, Quanzhou, Fujian Province, China",
+                modal_title: "B2B Manufacturing Inquiry", modal_name: "Your Name / Company",
+                modal_email: "Email Address", modal_msg: "Required Details (Model, Quantity, OEM requirements)",
+                modal_submit: "Submit Inquiry"
+            },
+            zh: {
+                nav_home: "首页", nav_products: "产品中心", nav_services: "定制服务",
+                hero_title: "高端卫浴与五金水暖精品制造",
+                hero_subtitle: "20余年专注制造，坐落于中国卫浴水暖之乡——福建南安仑苍，掌握核心工艺流程。",
+                hero_cta_primary: "浏览产品", hero_cta_secondary: "获取报价",
+                stat_exp: "年 OEM/ODM 研发经验", stat_contract: "恪守合同与诚信契约", stat_cert: "国际质量标准认证", stat_sample: "7-15天快速出样",
+                about_tag: "关于斯塔克", about_title: "全球卫浴五金卓越供应链",
+                about_subtitle: "南安英都斯塔克五金有限公司",
+                about_p: "公司位于中国最大的水暖卫浴产业基地——福建南安仑苍镇。借助完整的产业链集群优势（铸造、精密加工、电镀、装配、检测），为全球买家提供极具成本优势的高效服务。",
+                adv1_title: "重诚信与契约精神", adv1_desc: "严格履行每一项契约承诺，确保准时交货、品质如一，与美、欧、澳等地买家建立长久战略合作关系。",
+                adv2_title: "自主创新与研发实力", adv2_desc: "独立研发中心年均推出数十款新品，融合感应技术、精准恒温、节水降耗及智能物联等前沿科技。",
+                gallery_tag: "工厂实力", gallery_title: "严苛的闭环生产工艺",
+                tab_factory: "厂房外景", tab_cnc: "精密CNC车间", tab_assembly: "流水线装配", tab_warehouse: "物流发货区",
+                slide0_title: "现代化工业厂区", slide0_desc: "坐落于福建南安水暖城，全套闭环中大型生产和测试设备。",
+                slide1_title: "高精度 CNC 加工", slide1_desc: "微米级数控加工中心，确保水龙头螺纹、管件精细配合，不渗漏。",
+                slide2_title: "标准化装配流水线", slide2_desc: "每款产品经过 100% 气压、水压极限测试，保障终身耐用。",
+                slide3_title: "出口包装与准时交货", slide3_desc: "符合海运防撞标准的高阶包装，保障 DDP/FOB/CIF 准时到达全球港口。",
+                cert_tag: "资质标准", cert_title: "多国市场准入通行证",
+                cert1_name: "澳大利亚 WaterMark", cert1_desc: "澳洲无毒节水高合规水暖件",
+                cert2_name: "欧盟 CE 质量认证", cert2_desc: "符合欧盟环保与金属低铅标准",
+                cert3_name: "ISO 9001 体系", cert3_desc: "通过国际公认质量控制生产规范",
+                cert4_name: "北美 cUPC 节水标准", cert4_desc: "严格符合美国低铅无毒、限定流量规范",
+                banner_title: "期待与您共赢商机？",
+                banner_desc: "立即申请定制报价、索取样品或获取 ODM 画册。我们的外贸专家将在 12 小时内回复。",
+                banner_btn: "立即发送询盘",
+                footer_desc: "您值得信赖的全球 B2B 卫浴制造合作伙伴，专注高品质设计与高标准合同交付。",
+                footer_menu: "快速导航", footer_support: "客户支持", footer_head: "集团总部",
+                footer_address: "中国福建省泉州市南安市仑苍水暖城一期A区",
+                modal_title: "B2B 采购询盘表单", modal_name: "您的姓名 / 公司名称",
+                modal_email: "电子邮箱", modal_msg: "需求详情（型号、目标数量、OEM/ODM 需求）",
+                modal_submit: "提交询盘申请"
+            },
+            ar: {
+                nav_home: "الصفحة الرئيسية", nav_products: "المنتجات", nav_services: "الخدمات",
+                hero_title: "رائد صناعة الأدوات الصحية وعتاد السباكة",
+                hero_subtitle: "أكثر من 20 عامًا من الإتقان الصناعي، مباشرة من عاصمة السباكة الأسطورية في الصين - بلدة لون تسانغ، نانآن.",
+                hero_cta_primary: "استكشف المنتجات", hero_cta_secondary: "احصل على عرض سعر",
+                stat_exp: "عام خبرة OEM/ODM", stat_contract: "نزاهة العقد والالتزام", stat_cert: "معتمد من WaterMark/CE", stat_sample: "أيام لأخذ عينات سريعة",
+                about_tag: "لماذا تختار ستارك", about_title: "التميز العالمي في تصنيع الأدوات الصحية",
+                about_subtitle: "شركة نانآن يينغدو ستارك للعتاد المحدودة",
+                about_p: "تقع بشكل استراتيجي في بلدة لون تسانغ بمقاطعة فوجيان - عاصمة السباكة والتدفئة الرائدة في الصين. نستفيد من مئات المؤسسات الرائدة لتقديم تصميم وصب وتصنيع دقيق وتجميع متكامل.",
+                adv1_title: "النزاهة وروح العقد", adv1_desc: "الالتزام الصارم بكل تعهد، مما يضمن التسليم في الوقت المحدد، والجودة المستمرة، والتواصل الشفاف مع المشترين في أمريكا وأوروبا وأستراليا.",
+                adv2_title: "الابتكار القوي والبحث والتطوير", adv2_desc: "مركز بحث وتطوير مستقل يطلق مجموعات متطورة سنويًا، ويدمج مستشعرات بدون لمس وتقنيات توفير المياه.",
+                gallery_tag: "مصنعنا", gallery_title: "رقابة إنتاج لا مثيل لها",
+                tab_factory: "المنظر الخارجي", tab_cnc: "ورشة CNC الدقيقة", tab_assembly: "خط التجميع القياسي", tab_warehouse: "مستودع الخدمات اللوجستية",
+                slide0_title: "المنشأة الصناعية الحديثة", slide0_desc: "تقع في عاصمة لون تسانغ للسباكة بمقاطعة فوجيان، وتغطي خطوط إنتاج متكاملة واسعة النطاق.",
+                slide1_title: "تصنيع CNC عالي الدقة", slide1_desc: "تضمن ورش التصنيع عالية الدقة أسنان لولبية سلسة للصنابير وتثبيت مثالي للعتاد.",
+                slide2_title: "خط التجميع المعتمد", slide2_desc: "تضمن بروتوكولات اختبار التسريب الصارمة تجميعًا متينًا بنسبة 100٪ والحصول على شهادات الجودة.",
+                slide3_title: "التعبئة واللوجستيات العالمية", slide3_desc: "معايير تعبئة تصدير صارمة لحماية البضائع من أجل النقل البحري السلس والتسليم FOB/CIF.",
+                cert_tag: "الامتثال والجودة", cert_title: "معتمد للامتثال العالمي",
+                cert1_name: "الشهادة الأسترالية", cert1_desc: "عتاد سباكة متوافق مع WaterMark",
+                cert2_name: "علامة CE الأوروبية", cert2_desc: "متوافق مع المعايير المعدنية والبيئية الأوروبية",
+                cert3_name: "إدارة ISO 9001", cert3_desc: "عملية تصنيع صارمة لضمان الجودة",
+                cert4_name: "المعايير الأمريكية cUPC", cert4_desc: "متوافق تمامًا مع معايير خفض الرصاص وتوفير المياه",
+                banner_title: "هل أنت مستعد لتنمية أعمالك؟",
+                banner_desc: "اطلب عرض سعر مخصص أو عينة أو كتالوجات ODM. فريق المبيعات الدولي المحترف لدينا يستجيب في غضون 12 ساعة.",
+                banner_btn: "أرسل استفسارك الآن",
+                footer_desc: "شريكك الموثوق لتصنيع الأدوات الصحية B2B. متخصصون في تركيبات العتاد الموجهة بالتصميم وروح العقد.",
+                footer_menu: "روابط سريعة", footer_support: "الدعم", footer_head: "المقر الرئيسي",
+                footer_address: "المرحلة 1، المنطقة A، مدينة السباكة لون تسانغ، نانآن، تشوانتشو، مقاطعة فوجيان، الصين",
+                modal_title: "طلب تصنيع B2B", modal_name: "اسمك / شركتك",
+                modal_email: "البريد الإلكتروني", modal_msg: "التفاصيل المطلوبة (الموديل، الكمية، متطلبات OEM)",
+                modal_submit: "إرسال الطلب"
+            },
+            de: {
+                nav_home: "Startseite", nav_products: "Produkte", nav_services: "Service",
+                hero_title: "Premium-Sanitärwaren & Armaturenhersteller",
+                hero_subtitle: "Über 20 Jahre Fertigungskompetenz direkt aus Chinas berühmter Armaturenhauptstadt - Luncang Town, Nan'an.",
+                hero_cta_primary: "Produkte Entdecken", hero_cta_secondary: "Angebot Anfordern",
+                stat_exp: "Jahre OEM/ODM Erfahrung", stat_contract: "Vertragstreue", stat_cert: "WaterMark Zertifiziert", stat_sample: "Tage Schnelle Bemusterung",
+                about_tag: "Warum Stark", about_title: "Globale Sanitärfertigung auf Höchstem Niveau",
+                about_subtitle: "Nan'an Yingdu Stark Hardware Co., Ltd.",
+                about_p: "Strategisch günstig gelegen in Luncang Town, Provinz Fujian - Chinas wichtigster 'Heimat des Sanitär- und Heizungshandwerks'. Wir nutzen Hunderte von führenden Unternehmen in unserem Industriecluster und bieten vollintegriertes Design, Guss, Präzisionsbearbeitung, Galvanisierung und Montage.",
+                adv1_title: "Integrität & Vertragstreue", adv1_desc: "Strikte Einhaltung jeder Zusage, Gewährleistung pünktlicher Lieferung, gleichbleibender Qualität und transparenter Kommunikation für Käufer in Amerika, Europa und Australien.",
+                adv2_title: "Starke Innovation & Entwicklung", adv2_desc: "Unabhängiges F&E-Zentrum, das jährlich innovative Kollektionen auf den Markt bringt, die berührungslose Sensoren und wassersparende Technologien integrieren.",
+                gallery_tag: "Unsere Fertigung", gallery_title: "Unerreichte Produktionskontrolle",
+                tab_factory: "Fabrikansicht", tab_cnc: "Präzisions-CNC", tab_assembly: "Montageband", tab_warehouse: "Logistiklager",
+                slide0_title: "Modernes Industriegebäude", slide0_desc: "Das Hotel liegt in Luncang, Provinz Fujian, und umfasst groß angelegte integrierte Produktionslinien.",
+                slide1_title: "Präzisions-CNC-Bearbeitung", slide1_desc: "Hochpräzise CNC-Arbeitsplätze garantieren perfekte Gewinde und leckagefreie Funktion.",
+                slide2_title: "Montagelinie nach ISO-Standard", slide2_desc: "Strenge Dichtheits- und Druckprüfungen gewährleisten 100%ige Haltbarkeit und Betriebssicherheit.",
+                slide3_title: "Exportverpackung & Logistik", slide3_desc: "Spezielle Schutzverpackungen schützen die Ware auf dem Seeweg bei FOB/CIF-Lieferungen.",
+                cert_tag: "Qualitätsstandards", cert_title: "Zertifiziert Für Globale Märkte",
+                cert1_name: "Australien Zertifizierung", cert1_desc: "WaterMark-konforme Sanitärhardware",
+                cert2_name: "CE-Konformität", cert2_desc: "Entspricht europäischen Material- und Umweltstandards",
+                cert3_name: "ISO 9001 Management", cert3_desc: "Streng kontrollierter Fertigungsprozess",
+                cert4_name: "Nordamerikanische Standards", cert4_desc: "Erfüllt die strengen Anforderungen an Bleifreiheit und Durchflussmengen",
+                banner_title: "Bereit, Ihr Geschäft auszubauen?",
+                banner_desc: "Fordern Sie ein individuelles Angebot, Muster oder Kataloge an. Unser internationales Verkaufsteam antwortet innerhalb von 12 Stunden.",
+                banner_btn: "Jetzt Anfrage Senden",
+                footer_desc: "Ihr zuverlässiger B2B-Partner für Sanitärfertigung. Spezialisiert auf designorientierte Armaturen und höchste Vertragstreue.",
+                footer_menu: "Hauptmenü", footer_support: "Support", footer_head: "Hauptsitz",
+                footer_address: "Phase 1, Sektor A, Luncang Plumbing Town, Nan'an, Quanzhou, Provinz Fujian, China",
+                modal_title: "B2B-Fertigungsanfrage", modal_name: "Ihr Name / Unternehmen",
+                modal_email: "E-Mail-Adresse", modal_msg: "Anfragedetails (Modell, Menge, OEM-Anforderungen)",
+                modal_submit: "Anfrage Absenden"
+            },
+            es: {
+                nav_home: "Inicio", nav_products: "Productos", nav_services: "Servicios",
+                hero_title: "Fabricante Líder de Grifería y Accesorios Sanitarios",
+                hero_subtitle: "Más de 20 años de perfección en la fabricación, directo desde la Capital del Saneamiento de China - Luncang Town, Nan'an.",
+                hero_cta_primary: "Explorar Productos", hero_cta_secondary: "Solicitar Presupuesto",
+                stat_exp: "Años de Exp OEM/ODM", stat_contract: "Cumplimiento del Contrato", stat_cert: "Certificación WaterMark", stat_sample: "Días para Muestreo Rápido",
+                about_tag: "Por Qué Elegir Stark", about_title: "Excelencia Global en Fabricación de Sanitarios",
+                about_subtitle: "Nan'an Yingdu Stark Hardware Co., Ltd.",
+                about_p: "Ubicado estratégicamente en la ciudad de Luncang, provincia de Fujian, el principal 'Hogar de la Plomería de China'. Aprovechamos cientos de empresas líderes en nuestro clúster para ofrecer diseño, fundición, mecanizado de precisión, galvanoplastia y montaje integrados.",
+                adv1_title: "Integridad y Espíritu Contractual", adv1_desc: "Adhesión estricta a cada compromiso, asegurando entregas a tiempo, calidad constante y comunicación transparente para compradores internacionales.",
+                adv2_title: "Gran Innovación y Desarrollo", adv2_desc: "Centro de I+D independiente que lanza colecciones avanzadas anualmente, integrando sensores sin contacto y tecnologías de ahorro de agua.",
+                gallery_tag: "Nuestra Planta", gallery_title: "Control de Producción Inigualable",
+                tab_factory: "Exterior de Planta", tab_cnc: "Taller de CNC", tab_assembly: "Línea de Ensamble", tab_warehouse: "Almacén Logístico",
+                slide0_title: "Planta Industrial Moderna", slide0_desc: "Ubicada en la Capital de Saneamiento de Luncang, cubriendo líneas de producción a gran escala.",
+                slide1_title: "Mecanizado de Precisión CNC", slide1_desc: "Los talleres de mecanizado garantizan roscas de grifería perfectas y un ajuste impecable.",
+                slide2_title: "Línea de Ensamble Certificada", slide2_desc: "Rigurosos protocolos de prueba de fugas aseguran el 100% de durabilidad y certificación.",
+                slide3_title: "Logística y Embalaje Global", slide3_desc: "Embalaje robusto para garantizar un tránsito marítimo seguro y entrega puntual FOB/CIF.",
+                cert_tag: "Calidad y Certificaciones", cert_title: "Cumplimiento Global Asegurado",
+                cert1_name: "Certificación de Australia", cert1_desc: "Accesorios que cumplen con WaterMark",
+                cert2_name: "Marcado CE Europeo", cert2_desc: "Cumple con las directivas de metales y diseño ecológico",
+                cert3_name: "Certificación ISO 9001", cert3_desc: "Proceso de producción certificado por ISO",
+                cert4_name: "Estándares Norteamericanos", cert4_desc: "Cumple con los límites de caudal y latón sin plomo",
+                banner_title: "¿Listo para Hacer Crecer su Negocio?",
+                banner_desc: "Solicite una cotización, muestra o catálogo. Nuestro equipo de ventas responde en 12 horas.",
+                banner_btn: "Enviar Solicitud Ahora",
+                footer_desc: "Su socio confiable de fabricación B2B. Especializado en accesorios sanitarios de diseño y gran espíritu contractual.",
+                footer_menu: "Menú", footer_support: "Soporte", footer_head: "Oficina Central",
+                footer_address: "Fase 1, Área A, Luncang Plumbing Town, Nan'an, Quanzhou, Provincia de Fujian, China",
+                modal_title: "Solicitud de Fabricación B2B", modal_name: "Su Nombre / Empresa",
+                modal_email: "Correo Electrónico", modal_msg: "Detalles Requeridos (Modelo, Cantidad, Requisitos OEM)",
+                modal_submit: "Enviar Solicitud"
+            },
+            vi: {
+                nav_home: "Trang Chủ", nav_products: "Sản Phẩm", nav_services: "Dịch Vụ",
+                hero_title: "Nhà Sản Xuất Thiết Bị Vệ Sinh & Thiết Bị Đường Ống Cao Cấp",
+                hero_subtitle: "Hơn 20 năm kinh nghiệm chế tạo hoàn hảo, trực tiếp từ Thủ phủ Thiết bị vệ sinh huyền thoại Trung Quốc - Thị trấn Luân Thương, Nam An.",
+                hero_cta_primary: "Khám Phá Sản Phẩm", hero_cta_secondary: "Nhận Báo Giá",
+                stat_exp: "Năm Kinh nghiệm OEM/ODM", stat_contract: "Uy Tín & Cam Kết", stat_cert: "Chứng Nhận WaterMark/CE", stat_sample: "Ngày Làm Mẫu Nhanh",
+                about_tag: "Tại Sao Chọn Stark", about_title: "Nhà Máy Sản Xuất Thiết Bị Vệ Sinh Đạt Tiêu Chuẩn Toàn Cầu",
+                about_subtitle: "Công ty TNHH Phần cứng Stark Nam An Anh Đô",
+                about_p: "Tọa lạc tại thị trấn Luân Thương, tỉnh Phúc Kiến - cụm công nghiệp sản xuất vòi nước và đường ống lớn nhất Trung Quốc. Chúng tôi sở hữu chuỗi cung ứng khép kín từ đúc, gia công CNC, mạ điện và đóng gói.",
+                adv1_title: "Tinh thần Cam kết & Uy tín", adv1_desc: "Tuân thủ nghiêm ngặt mọi cam kết, đảm bảo giao hàng đúng hẹn, chất lượng đồng đều và truyền thông minh bạch cho các đối tác toàn cầu.",
+                adv2_title: "Năng lực Nghiên cứu & Đổi mới", adv2_desc: "Trung tâm R&D độc lập ra mắt hàng chục sản phẩm mới hàng năm, tích hợp cảm biến thông minh và tiết kiệm nước.",
+                gallery_tag: "Năng Lực Sản Xuất", gallery_title: "Kiểm Soát Quy Trình Nghiêm Ngặt",
+                tab_factory: "Toàn Cảnh Nhà Máy", tab_cnc: "Xưởng Tiện CNC", tab_assembly: "Dây Chuyền Đóng Gói", tab_warehouse: "Kho Hàng Xuất Khẩu",
+                slide0_title: "Nhà Máy Công Nghiệp Hiện Đại", slide0_desc: "Nằm tại trung tâm nước và thiết bị vệ sinh Luân Thương, Phúc Kiến, quy mô sản xuất khép kín.",
+                slide1_title: "Gia Công CNC Độ Chính Xác Cao", slide1_desc: "Xưởng cơ khí chính xác đảm bảo ren vòi không rò rỉ, hoàn mỹ trong từng chi tiết.",
+                slide2_title: "Dây Chuyền Lắp Ráp Đạt Chuẩn", slide2_desc: "Mọi sản phẩm đều được kiểm tra áp suất nước và khí 100% trước khi xuất xưởng.",
+                slide3_title: "Kho Vận & Đóng Gói Xuất Khẩu", slide3_desc: "Quy cách đóng gói chống va đập đạt chuẩn hàng hải, đảm bảo vận chuyển FOB/CIF an toàn.",
+                cert_tag: "Chứng Chỉ Chất Lượng", cert_title: "Đáp Ứng Đầy Đủ Tiêu Chuẩn Toàn Cầu",
+                cert1_name: "Chứng Chỉ Úc WaterMark", cert1_desc: "Chứng nhận chất lượng ngành nước Úc",
+                cert2_name: "Chứng Chỉ Châu Âu CE", cert2_desc: "Đáp ứng tiêu chuẩn an toàn kim loại EU",
+                cert3_name: "Hệ Thống ISO 9001", cert3_desc: "Quy trình kiểm soát chất lượng đạt chuẩn ISO",
+                cert4_name: "Tiêu Chuẩn Mỹ cUPC", cert4_desc: "Đáp ứng yêu cầu nghiêm ngặt về vật liệu không chì",
+                banner_title: "Sẵn Sàng Hợp Tác Cùng Phát Triển?",
+                banner_desc: "Yêu cầu báo giá, làm mẫu hoặc nhận catalog ODM. Đội ngũ kinh doanh quốc tế phản hồi trong 12 giờ.",
+                banner_btn: "Gửi Yêu Cầu Ngay",
+                footer_desc: "Đối tác B2B tin cậy về sản xuất thiết bị vệ sinh của bạn. Chuyên sản xuất các sản phẩm chất lượng cao, đúng tinh thần cam kết.",
+                footer_menu: "Danh Mục", footer_support: "Hỗ Trợ", footer_head: "Trụ Sở Chính",
+                footer_address: "Giai đoạn 1, Khu A, Thị trấn Sắp đặt Luân Thương, Nam An, Tuyền Châu, Phúc Kiến, Trung Quốc",
+                modal_title: "Yêu Cầu Báo Giá B2B", modal_name: "Tên Của Bạn / Công Ty",
+                modal_email: "Địa Chỉ Email", modal_msg: "Thông Tin Chi Tiết Yêu Cầu (Mẫu mã, Số lượng, OEM)",
+                modal_submit: "Gửi Yêu Cầu"
+            }
+        };
+
+        // Current Active Language state
+        let currentLang = 'en';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // Handle RTL layout for Arabic
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.getElementById('main-header').style.direction = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.getElementById('main-header').style.direction = 'ltr';
+            }
+
+            // Update Language Toggle Button Label
+            const langLabels = {
+                en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt"
+            };
+            document.getElementById('current-lang').textContent = langLabels[lang];
+
+            // Perform DOM localization mapping
+            const elements = document.querySelectorAll('[data-tr]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-tr');
+                if (translation[lang][key]) {
+                    el.textContent = translation[lang][key];
+                }
+            });
+        }
+
+        // 3D Tab Slide Control
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const slides = document.querySelectorAll('.gallery-slide');
+            
+            tabs.forEach((tab, i) => {
+                if (i === index) tab.classList.add('active');
+                else tab.classList.remove('active');
+            });
+
+            slides.forEach((slide, i) => {
+                if (i === index) slide.classList.add('active');
+                else slide.classList.remove('active');
+            });
+        }
+
+        // Header Scrolling Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Interactive Inquiry modal controller
+        function openModal() {
+            document.getElementById('inquiry-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('inquiry-modal').classList.remove('active');
+        }
+
+        function submitInquiry(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Advanced visual feedback animation
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending Inquiry...";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted Successfully!";
+                submitBtn.style.backgroundColor = "#07C160";
+                
+                setTimeout(() => {
+                    closeModal();
+                    event.target.reset();
+                    // Reset Button
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.backgroundColor = "var(--primary)";
+                    submitBtn.disabled = false;
+                }, 1500);
+            }, 1200);
+        }
+    </script>
 </body>
 </html>

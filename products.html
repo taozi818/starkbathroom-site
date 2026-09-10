@@ -3,54 +3,1097 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products | Stark Hardware - 100% Genuine Product Gallery</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Genuine Product Catalog | Stark Bathroom Hardware</title>
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --primary: #0052FF; --bg: #FFFFFF; --text-dark: #0F172A; --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); }
-        .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-        header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.05); height: 80px; display: flex; align-items: center; }
-        .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); text-decoration: none; }
-        nav a { text-decoration: none; color: var(--text-dark); margin-left: 2.5rem; font-weight: 600; opacity: 0.7; }
-        .hero-mini { padding: 140px 0 40px; text-align: center; }
-        .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; padding-bottom: 80px; }
-        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid #f0f0f0; }
-        .img-wrap { height: 350px; overflow: hidden; background: #fff; padding: 1rem; }
-        .img-wrap img { width: 100%; height: 100%; object-fit: contain; }
-        .card-body { padding: 1.5rem; }
-        .card-body h3 { font-size: 1.1rem; height: 3rem; overflow: hidden; margin-bottom: 1rem; }
-        .inquiry-btn { display: block; width: 100%; padding: 12px; background: var(--primary); color: white; text-align: center; text-decoration: none; font-weight: 700; border-radius: 10px; }
-        footer { background: var(--text-dark); color: white; padding: 60px 0; text-align: center; }
+        :root {
+            --primary: #0052FF;
+            --primary-dark: #003EB3;
+            --text-dark: #0F172A;
+            --text-muted: #64748B;
+            --bg-light: #F8FAFC;
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.04);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: #F8FAFC;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        [dir="rtl"] {
+            font-family: 'Noto Sans Arabic', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Glassmorphic Sticky Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 90px;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled {
+            height: 75px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo-container img {
+            height: 50px;
+            transition: var(--transition-smooth);
+        }
+
+        header.scrolled .logo-container img {
+            height: 42px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition-smooth);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-btn {
+            background: rgba(0, 82, 255, 0.05);
+            border: 1px solid rgba(0, 82, 255, 0.1);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+
+        .lang-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 120%;
+            right: 0;
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 16px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            width: 160px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: var(--transition-smooth);
+            z-index: 1100;
+            overflow: hidden;
+        }
+
+        .lang-switcher:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-dropdown a {
+            display: block;
+            padding: 0.8rem 1.2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            text-align: left;
+        }
+
+        .lang-dropdown a:hover {
+            background: var(--bg-light);
+            color: var(--primary);
+            padding-left: 1.5rem;
+        }
+
+        /* Mini Hero Section */
+        .hero-mini {
+            padding: 12rem 0 6rem;
+            background-color: #FFFFFF;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .hero-mini h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .hero-mini p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Dynamic Product Filter Control */
+        .filter-section {
+            padding: 4rem 0 10rem;
+        }
+
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 5rem;
+        }
+
+        .filter-btn {
+            background: #FFFFFF;
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.01);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: #FFFFFF;
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 82, 255, 0.2);
+        }
+
+        /* Grid layout for "One by One" individual product cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-premium);
+            border: 1px solid rgba(0,0,0,0.02);
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+            border-color: rgba(0, 82, 255, 0.1);
+        }
+
+        .product-image-container {
+            position: relative;
+            background-color: var(--bg-light);
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 1.5rem;
+        }
+
+        .product-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-image-container img {
+            transform: scale(1.05);
+        }
+
+        .product-info-container {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .product-cat {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            height: 3.6rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            height: 2.8rem;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        .btn-inquiry {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 12px;
+            background-color: var(--primary);
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-inquiry:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.25);
+        }
+
+        /* Custom Inquiry Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2000;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            width: 100%;
+            max-width: 650px;
+            padding: 3rem;
+            box-shadow: 0 30px 100px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            transform: scale(0.9);
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active .modal-card {
+            transform: scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0,0,0,0.03);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            transition: var(--transition-smooth);
+        }
+
+        .close-btn:hover {
+            background: var(--primary);
+            color: #FFFFFF;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--bg-light);
+            font-size: 0.95rem;
+            transition: var(--transition-smooth);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: #FFFFFF;
+            padding: 8rem 0 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 6rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            max-width: 320px;
+        }
+
+        .footer-links h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 0.5rem;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-top: 0.2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50px;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Floating widgets */
+        .floating-widget {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .widget-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .widget-btn:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .widget-wechat {
+            background-color: #07C160;
+        }
+
+        .widget-email {
+            background-color: var(--primary);
+        }
     </style>
 </head>
 <body>
-<header><div class="container nav-inner"><a href="index.html" class="logo">STARK.</a><nav><a href="index.html">Home</a><a href="products.html" style="color:var(--primary); opacity:1;">Products</a><a href="services.html">Services</a><a href="tel:18522089987">Call: 18522089987</a></nav></div></header>
-<main class="container">
-    <section class="hero-mini"><h1>Genuine Product Catalog</h1><p>Corrected items directly matched from your Excel data source.</p></section>
-    
-    <div class="product-grid">
-        <!-- 真正从资料库提取的产品 (剔除了工厂和证书图) -->
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/Ac319c27831f544beac5de9ad71345e89k.jpg"></div><div class="card-body"><h3>Vandal Resistant Wall Hung Toilet</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Prison specialized 304 Stainless Steel</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/Ad82a013cec6442bd9666821018d754863.jpg"></div><div class="card-body"><h3>SUS304 Rimless Squatting Pan</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Anti-Slip Heavy Duty Construction</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A3a426334852b4f42889bd39b1a3d2c85M.jpg"></div><div class="card-body"><h3>Automatic Infrared Sensor Faucet</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Touchless Solid Brass Mixer Tap</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A18d3a1bc500f4514b77dc772fb4a8c206.jpg"></div><div class="card-body"><h3>Luxury Gold Pedestal Sink</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Cylindrical PVD Finish SS304</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A123f9e225d484076bf4e76b63f87490f5.jpg"></div><div class="card-body"><h3>Brass Chrome Foam Dispenser</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Infrared Motion Sensor | Deck Mounted</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A06017c3537cd455ea61b62e46c5dde5bQ.jpg"></div><div class="card-body"><h3>Concealed Floor Pedal Flush Valve</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Self-Closing 3-6s | Brass Body</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A56ef63444ea6493293eeccaca545cb64P.jpg"></div><div class="card-body"><h3>Push Button Basin Tap</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Solid Brass Time Delay Faucet</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A06241f260a99402f9df5bf9f4385b8caw.jpg"></div><div class="card-body"><h3>Manual Push Urinal Valve</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Chrome Plated Flushometer</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A614383483bda4edda3bbbf4b409d46dck.jpg"></div><div class="card-body"><h3>LED Waterfall Display Faucet</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Hydropower Temperature Sensing</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A5d9da0412c264f84ab3c4b345c3ed04bm.jpg"></div><div class="card-body"><h3>Concealed Urinal Flusher</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Automatic Sensor | Stainless Steel</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A109ec4cec5044fec8ea5a8fb5910168es.jpg"></div><div class="card-body"><h3>Outdoor Drinking Fountain</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Dual Level 304 SS Station</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/Acaf34c52ca4c4682b2ed166b6685f94c2.jpg"></div><div class="card-body"><h3>Mop Utility Sink</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Heavy Duty Floor Mount | SS304</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A97832fdd3d8c4b05b5eff8d207fa66514.jpg"></div><div class="card-body"><h3>Wall Mounted Auto Soap Dispenser</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">1000ml Large Capacity | SS304</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <!-- 补充更多具体产品图 -->
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A15e0ee5434e542f994d26ff97249a007S.jpg"></div><div class="card-body"><h3>Bulk Packing & Logistics</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Professional Global Export Handling</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
-        <div class="card"><div class="img-wrap"><img src="https://sc04.alicdn.com/kf/A109ec4cec5044fec8ea5a8fb5910168es.jpg"></div><div class="card-body"><h3>Stainless Steel Wash Station</h3><p style="color:#666; font-size:0.8rem; margin-bottom:1rem;">Commercial & Industrial Applications</p><a href="mailto:dadadajiehui@gmail.com" class="inquiry-btn">Inquiry Now →</a></div></div>
+
+    <!-- STICKY HEADER -->
+    <header id="main-header">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo-container">
+                <img src="https://sc04.alicdn.com/kf/A9fd09c8f7163419ba723398c19a430f7T.jpg" alt="Stark Hardware">
+            </a>
+            <nav>
+                <a href="index.html" data-tr="nav_home">Home</a>
+                <a href="products.html" class="active" data-tr="nav_products">Products</a>
+                <a href="services.html" data-tr="nav_services">Services</a>
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn"><i class="fa-solid fa-globe"></i> <span id="current-lang">English</span> <i class="fa-solid fa-chevron-down"></i></button>
+                    <div class="lang-dropdown">
+                        <a href="javascript:void(0)" onclick="switchLanguage('en')">English</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('ar')">العربية</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('zh')">简体中文</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('de')">Deutsch</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('es')">Español</a>
+                        <a href="javascript:void(0)" onclick="switchLanguage('vi')">Tiếng Việt</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MINI HERO -->
+    <section class="hero-mini">
+        <div class="container">
+            <h1 data-tr="products_hero_title">Stark Sanitary Hardware Catalog</h1>
+            <p data-tr="products_hero_desc">Explore our full line of commercial delay valves, touchless induction hardware, and indestructible heavy-duty stainless steel fixtures.</p>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE FILTER SECTION -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterCategory('all')" data-tr="btn_all_products">All Products</button>
+                <button class="filter-btn" onclick="filterCategory('delay')" data-tr="btn_delay_valve">Delay Valves</button>
+                <button class="filter-btn" onclick="filterCategory('sensor')" data-tr="btn_induction_series">Induction Series</button>
+                <button class="filter-btn" onclick="filterCategory('stainless')" data-tr="btn_stainless_steel">Stainless Steel</button>
+            </div>
+
+            <!-- PRODUCT GRID (ONE BY ONE HIGH DEFINITION PRODUCTS) -->
+            <div class="product-grid" id="main-product-grid">
+                <!-- Products will be generated dynamically in JS to enable multi-language content translation -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>STARK.</h2>
+                    <p data-tr="footer_desc">Your reliable B2B sanitary ware manufacturing partner. Specializing in design-led, contract-spirit hardware fixtures.</p>
+                    <div class="social-icons">
+                        <a href="https://wa.me/18522089987" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="mailto:dadadajiehui@gmail.com" class="social-icon"><i class="fa-solid fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_menu">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html" data-tr="nav_home">Home</a></li>
+                        <li><a href="products.html" data-tr="nav_products">Products</a></li>
+                        <li><a href="services.html" data-tr="nav_services">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_support">Support</h3>
+                    <ul>
+                        <li><a href="javascript:void(0)" onclick="openModal()" data-tr="hero_cta_secondary">Get a Quote</a></li>
+                        <li><a href="tel:18522089987" data-tr="phone">Call Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3 data-tr="footer_head">Headquarters</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-tr="footer_address">Phase 1, Area A, Luncang Plumbing Town, Nan'an, Quanzhou, Fujian Province, China</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>18522089987</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>dadadajiehui@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright-bar">
+                <p>&copy; 2026 Nan'an Yingdu Stark Hardware Co., Ltd. All Rights Reserved.</p>
+                <p>Designed for Global Wholesalers & Distributors.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE INQUIRY MODAL -->
+    <div class="modal" id="inquiry-modal">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <h2 style="margin-bottom:1.5rem; font-size:1.75rem;" data-tr="modal_title">B2B Manufacturing Inquiry</h2>
+            <form onsubmit="submitInquiry(event)">
+                <div class="form-group">
+                    <label for="name" data-tr="modal_name">Your Name / Company</label>
+                    <input type="text" id="name" class="form-control" required placeholder="e.g. John Doe / Global Plumbing LLC">
+                </div>
+                <div class="form-group">
+                    <label for="email" data-tr="modal_email">Email Address</label>
+                    <input type="email" id="email" class="form-control" required placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="target-product" id="target-product-label" style="display:none;"></label>
+                    <input type="hidden" id="target-product-id">
+                </div>
+                <div class="form-group">
+                    <label for="message" data-tr="modal_msg">Required Details (Model, Quantity, OEM requirements)</label>
+                    <textarea id="message" class="form-control" rows="4" required placeholder="Please state estimated quantities, required certifications, or target models..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; border:none; border-radius:12px;" data-tr="modal_submit">Submit Inquiry</button>
+            </form>
+        </div>
     </div>
-</main>
-<footer><div class="container"><h2>Stark Hardware</h2><p>dadadajiehui@gmail.com | +86 18522089987</p><p style="margin-top:1rem; opacity:0.5;">Address: Section A, Phase I, Plumbing City, Nanan, Fujian</p></div></footer>
+
+    <!-- FLOATING COMMUNICATION WIDGET -->
+    <div class="floating-widget">
+        <a href="https://wa.me/18522089987" class="widget-btn widget-wechat" title="WeChat/WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:dadadajiehui@gmail.com" class="widget-btn widget-email" title="Email Inquiry"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+
+    <!-- TRANSLATION & PRODUCTS DATABASE SCRIPT -->
+    <script>
+        // Products Database Array - Real Local Products with 100% Correct Image IDs
+        const productsDb = [
+            {
+                id: "prod-01",
+                category: "delay",
+                images: {
+                    en: "assets/products/image1.png",
+                    zh: "assets/products/image1.png"
+                },
+                title: {
+                    en: "Heavy Duty Brass Vertical Floor Foot Pedal Flush Valve",
+                    zh: "重型全铜立式脚踏冲洗阀（延时阀系列）",
+                    ar: "صمام شطف القدم النحاسي العمودي للأعمال الشاقة",
+                    de: "Hochleistungs-Fußpedal-Spülventil aus Messing, vertikal",
+                    es: "Válvula de Descarga Vertical de Pedal de Pie de Latón para Trabajo Pesado",
+                    vi: "Van xả tiểu đứng đạp chân bằng đồng siêu bền"
+                },
+                desc: {
+                    en: "Anti-Slip Self Closing Delay Squat Toilet Commercial Public Restroom",
+                    zh: "防滑防冻自闭式延时，公厕高频重负荷首选",
+                    ar: "صمام تأخير الغلق الذاتي المضاد للانزلاق للمراحيض العامة التجارية",
+                    de: "Rutschfestes, selbstschließendes Verzögerungs-Spülventil für gewerbliche Toiletten",
+                    es: "Cierre automático con retardo antideslizante para baños públicos comerciales",
+                    vi: "Hệ thống tự động ngắt nước chậm chống trượt dùng cho nhà vệ sinh công cộng"
+                }
+            },
+            {
+                id: "prod-02",
+                category: "delay",
+                images: {
+                    en: "assets/products/image2.jpeg",
+                    zh: "assets/products/image2.jpeg"
+                },
+                title: {
+                    en: "Heavy Duty Brass Horizontal Foot Pedal Flush Valve",
+                    zh: "重型全铜卧式脚踏冲洗阀（延时阀系列）",
+                    ar: "صمام شطف القدم النحاسي الأفقي للأعمال الشاقة",
+                    de: "Hochleistungs-Fußpedal-Spülventil aus Messing, horizontal",
+                    es: "Válvula de Descarga Horizontal de Pedal de Pie de Latón para Trabajo Pesado",
+                    vi: "Van xả tiểu nằm đạp chân bằng đồng siêu bền"
+                },
+                desc: {
+                    en: "Concealed Floor Pedal Flush Valve Self-Closing 3-6s Brass Body",
+                    zh: "隐藏式地板安装，精准延时3-6秒，全黄铜精密铸造",
+                    ar: "صمام شطف مخفي مثبت على الأرض غلق ذاتي 3-6 ثوانٍ هيكل نحاسي",
+                    de: "Unterputz-Fußpedal-Spülventil, selbstschließnd 3-6 Sek., Messingkörper",
+                    es: "Válvula de descarga de pedal de piso oculta cuerpo de latón con autocierre 3-6 s",
+                    vi: "Van đạp chân âm sàn tự đóng 3-6s thân bằng đồng nguyên chất"
+                }
+            },
+            {
+                id: "prod-03",
+                category: "sensor",
+                images: {
+                    en: "assets/products/image21.jpeg",
+                    zh: "assets/products/image21.jpeg"
+                },
+                title: {
+                    en: "Solid Brass Automatic Infrared Sensor Bathroom Faucet",
+                    zh: "全铜冷热自动红外感应面盆龙头（感应系列）",
+                    ar: "صنبور حمام أوتوماتيكي بمستشعر الأشعة تحت الحمراء من النحاس الصلب",
+                    de: "Automatische Infrarot-Sensor-Mischbatterie aus massivem Messing",
+                    es: "Grifo Automático de Baño con Sensor de Infrarrojos de Latón Macizo",
+                    vi: "Vòi lavabo cảm ứng hồng ngoại tự động bằng đồng thau nguyên khối"
+                },
+                desc: {
+                    en: "Touchless Bathroom Basin Faucet with Control Box, Battery or AC Powered",
+                    zh: "无接触红外感应，配备智能控制盒，干电池/交流电双供电可选",
+                    ar: "صنبور حوض حمam يعمل بدون لمس مع صندوق تحكم، يعمل بالبطارية أو التيار المتردد",
+                    de: "Berührungslose Waschtischarmatur mit Steuerbox, Batterie- oder Netzbetrieb",
+                    es: "Grifo de lavabo sin contacto con caja de control, funciona con batería o CA",
+                    vi: "Vòi chậu rửa mặt không chạm có hộp điều khiển, dùng pin hoặc điện AC"
+                }
+            },
+            {
+                id: "prod-04",
+                category: "sensor",
+                images: {
+                    en: "assets/products/image32.jpeg",
+                    zh: "assets/products/image32.jpeg"
+                },
+                title: {
+                    en: "Automatic Deck-Mounted Liquid Soap Dispenser",
+                    zh: "全铜自动台装感应泡沫/给皂器（感应系列）",
+                    ar: "موزع صابون سائل أوتوماتيكي مثبت على السطح",
+                    de: "Automatischer Waschtisch-Seifenspender für Flüssigseife",
+                    es: "Dispensador Automático de Jabón Líquido Montado en Encimera",
+                    vi: "Hộp đựng xà phòng cảm ứng tự động âm bàn bằng đồng"
+                },
+                desc: {
+                    en: "Premium Chrome Plated Brass Sensor Dispenser with Smart Motion Detection",
+                    zh: "精细电镀防腐，搭载高灵敏红外移动识别，防误触防漏液",
+                    ar: "موزع صابون بمستشعر نحاسي مطلي بالكروم ممتاز مع كشف حركة ذكي",
+                    de: "Premium verchromter Messing-Seifenspender mit intelligenter Bewegungserkennung",
+                    es: "Dispensador con sensor de latón cromado de primera calidad con detección de movimiento inteligente",
+                    vi: "Hộp xà phòng cảm ứng bằng đồng mạ chrome cao cấp phát hiện chuyển động thông minh"
+                }
+            },
+            {
+                id: "prod-05",
+                category: "stainless",
+                images: {
+                    en: "assets/products/image119.jpeg",
+                    zh: "assets/products/image119.jpeg"
+                },
+                title: {
+                    en: "304 Stainless Steel Silicone Anti-collision Wall Hung Toilet",
+                    zh: "304不锈钢防破坏壁挂式防撞马桶（不锈钢系列）",
+                    ar: "مرحاض معلق على الحائط مضاد للتصادم من الفولاذ المقاوم للصدأ 304 مع السيليكون",
+                    de: "Hängendes Anti-Vandalen-WC aus Edelstahl 304 mit Silikon-Schutz",
+                    es: "Inodoro de Pared Antivandálico de Acero Inoxidable 304 con Silicona",
+                    vi: "Bồn cầu treo tường chống phá hoại bằng inox 304 đệm silicone"
+                },
+                desc: {
+                    en: "Heavy-Duty Vandal Resistant Toilet with Soft Padding for High-Security Facilities",
+                    zh: "监狱/看守所高安全防破坏重载马桶，配防撞静音防撕扯硅胶软垫",
+                    ar: "مرحاض شديد التحمل ومقاوم للتخريب مع حشوة ناعمة للمنشآت عالية الحماية",
+                    de: "Hochleistungs-Vandalensicheres WC mit weicher Polsterung für Hochsicherheitsbereiche",
+                    es: "Inodoro antivandálico de alta resistencia con acolchado suave para instalaciones de alta seguridad",
+                    vi: "Bồn cầu chống phá hoại siêu bền có đệm mềm cho các cơ sở an ninh cao"
+                }
+            },
+            {
+                id: "prod-06",
+                category: "stainless",
+                images: {
+                    en: "assets/products/image74.jpeg",
+                    zh: "assets/products/image74.jpeg"
+                },
+                title: {
+                    en: "Stainless Steel Silicone Soft Padding Anti-collision Squatting Pan",
+                    zh: "304不锈钢防静音防撞高强度蹲便器（不锈钢系列）",
+                    ar: "مرحاض عربي أرضي مضاد للتصادم من الفولاذ المقاوم للصدأ مع حشوة سيليكون ناعمة",
+                    de: "Edelstahl-Hock-WC mit weicher Silikon-Polsterung und Vandalismusschutz",
+                    es: "Placa Turca Antivandálica de Acero Inoxidable con Acolchado Suave de Silicona",
+                    vi: "Xí bệt chống phá hoại bằng inox 304 có đệm mềm silicone"
+                },
+                desc: {
+                    en: "Indestructible Anti-vandalism Squatting Pan for High Security Public Restrooms",
+                    zh: "无惧暴力敲击，嵌入式防震消音，专为公共监狱与高防护公共场所开发",
+                    ar: "مرحاض أرضي غير قابل للتدمير ومقاوم للتخريب للمراحيض العامة عالية الحماية",
+                    de: "Nahezu unzerstörbares Hock-WC für Hochsicherheits-Sanitäranlagen",
+                    es: "Placa turca indestructible antivandálica para baños públicos de alta seguridad",
+                    vi: "Xí bệt bất hoại chống phá hoại dùng cho nhà vệ sinh công cộng an ninh cao"
+                }
+            }
+        ];
+
+        // Language Matrix Dictionary
+        const translation = {
+            en: {
+                nav_home: "Home", nav_products: "Products", nav_services: "Services",
+                products_hero_title: "Stark Commercial Hardware Catalog",
+                products_hero_desc: "Explore our full line of commercial delay valves, touchless induction hardware, and indestructible heavy-duty stainless steel fixtures.",
+                btn_all_products: "All Products", btn_delay_valve: "Delay Valves",
+                btn_induction_series: "Induction Series", btn_stainless_steel: "Stainless Steel",
+                footer_desc: "Your reliable B2B sanitary ware manufacturing partner. Specializing in design-led, contract-spirit hardware fixtures.",
+                footer_menu: "Quick Links", footer_support: "Support", footer_head: "Headquarters",
+                footer_address: "Phase 1, Area A, Luncang Plumbing Town, Nan'an, Quanzhou, Fujian Province, China",
+                modal_title: "B2B Manufacturing Inquiry", modal_name: "Your Name / Company",
+                modal_email: "Email Address", modal_msg: "Required Details (Model, Quantity, OEM requirements)",
+                modal_submit: "Submit Inquiry", btn_inquiry_now: "Inquiry Now"
+            },
+            zh: {
+                nav_home: "首页", nav_products: "产品中心", nav_services: "定制服务",
+                products_hero_title: "斯塔克独立站正品名录",
+                products_hero_desc: "深入探索我们的三大主力产品线：重载延时阀、冷热感应洁具、以及高防护304不锈钢特种五金。",
+                btn_all_products: "全部正品", btn_delay_valve: "延时阀系列",
+                btn_induction_series: "冷热感应系列", btn_stainless_steel: "304不锈钢系列",
+                footer_desc: "您值得信赖的全球 B2B 卫浴制造合作伙伴，专注高品质设计与高标准合同交付。",
+                footer_menu: "快速导航", footer_support: "客户支持", footer_head: "集团总部",
+                footer_address: "中国福建省泉州市南安市仑苍水暖城一期A区",
+                modal_title: "B2B 采购询盘表单", modal_name: "您的姓名 / 公司名称",
+                modal_email: "电子邮箱", modal_msg: "需求详情（型号、目标数量、OEM/ODM 需求）",
+                modal_submit: "提交询盘申请", btn_inquiry_now: "立即咨询 →"
+            },
+            ar: {
+                nav_home: "الصفحة الرئيسية", nav_products: "المنتجات", nav_services: "الخدمات",
+                products_hero_title: "ستارك دليل عتاد الأدوات الصحية التجارية",
+                products_hero_desc: "استكشف خطنا الكامل من صمامات التأخير التجارية، وعتاد الاستشعار غير اللمسي، وتركيبات الفولاذ المقاوم للصدأ الشديدة التحمل وغير القابلة للتدمير.",
+                btn_all_products: "جميع المنتجات", btn_delay_valve: "صمامات التأخير",
+                btn_induction_series: "سلسلة الاستشعار", btn_stainless_steel: "الفولاذ المقاوم للصدأ",
+                footer_desc: "شريكك الموثوق لتصنيع الأدوات الصحية B2B. متخصصون في تركيبات العتاد الموجهة بالتصميم وروح العقد.",
+                footer_menu: "روابط سريعة", footer_support: "الدعم", footer_head: "المقر الرئيسي",
+                footer_address: "المرحلة 1، المنطقة A، مدينة السباكة لون تسانغ، نانآن، تشوانتشو، مقاطعة فوجيان، الصين",
+                modal_title: "طلب تصنيع B2B", modal_name: "اسمك / شركتك",
+                modal_email: "البريد الإلكتروني", modal_msg: "التفاصيل المطلوبة (الموديل، الكمية، متطلبات OEM)",
+                modal_submit: "إرسال الطلب", btn_inquiry_now: "أرسل استفسارك الآن"
+            },
+            de: {
+                nav_home: "Startseite", nav_products: "Produkte", nav_services: "Service",
+                products_hero_title: "Stark Gewerbliches Sanitär-Sortiment",
+                products_hero_desc: "Entdecken Sie unser komplettes Sortiment an gewerblichen Selbstschlussarmaturen, berührungslosen Infrarot-Sensor-Armaturen und unzerstörbaren Hochsicherheits-Edelstahlprodukten.",
+                btn_all_products: "Alle Produkte", btn_delay_valve: "Selbstschlussventile",
+                btn_induction_series: "Sensor-Armaturen", btn_stainless_steel: "Edelstahl-Serie",
+                footer_desc: "Ihr zuverlässiger B2B-Partner für Sanitärfertigung. Spezialisiert auf designorientierte Armaturen und höchste Vertragstreue.",
+                footer_menu: "Hauptmenü", footer_support: "Support", footer_head: "Hauptsitz",
+                footer_address: "Phase 1, Sektor A, Luncang Plumbing Town, Nan'an, Quanzhou, Provinz Modell, China",
+                modal_title: "B2B-Fertigungsanfrage", modal_name: "Ihr Name / Unternehmen",
+                modal_email: "E-Mail-Adresse", modal_msg: "Anfragedetails (Modell, Menge, OEM-Anforderungen)",
+                modal_submit: "Anfrage Absenden", btn_inquiry_now: "Anfrage Senden"
+            },
+            es: {
+                nav_home: "Inicio", nav_products: "Productos", nav_services: "Servicios",
+                products_hero_title: "Catálogo de Grifería Comercial Stark",
+                products_hero_desc: "Explore nuestra línea completa de válvulas de descarga temporizadas, accesorios con sensor sin contacto e inodoros indestructibles de acero inoxidable de alta resistencia.",
+                btn_all_products: "Todos los Productos", btn_delay_valve: "Válvulas Temporizadas",
+                btn_induction_series: "Línea con Sensor", btn_stainless_steel: "Línea de Acero Inoxidable",
+                footer_desc: "Su socio confiable de fabricación B2B. Especializado en accesorios sanitarios de diseño y gran espíritu contractual.",
+                footer_menu: "Menú", footer_support: "Soporte", footer_head: "Oficina Central",
+                footer_address: "Fase 1, Área A, Luncang Plumbing Town, Nan'an, Quanzhou, Provincia de Fujian, China",
+                modal_title: "Solicitud de Fabricación B2B", modal_name: "Su Nombre / Empresa",
+                modal_email: "Correo Electrónico", modal_msg: "Detalles Requeridos (Modelo, Cantidad, Requisitos OEM)",
+                modal_submit: "Enviar Solicitud", btn_inquiry_now: "Solicitar Información"
+            },
+            vi: {
+                nav_home: "Trang Chủ", nav_products: "Sản Phẩm", nav_services: "Dịch Vụ",
+                products_hero_title: "Danh Mục Thiết Bị Vệ Sinh Thương Mại Stark",
+                products_hero_desc: "Khám phá toàn diện các dòng van tự ngắt cơ, thiết bị vệ sinh cảm ứng không chạm và bồn cầu bằng inox 304 chống đập phá an ninh cao.",
+                btn_all_products: "Tất Cả Sản Phẩm", btn_delay_valve: "Van Xả Tự Ngắt",
+                btn_induction_series: "Thiết Bị Cảm Ứng", btn_stainless_steel: "Thiết Bị Inox 304",
+                footer_desc: "Đối tác B2B tin cậy về sản xuất thiết bị vệ sinh của bạn. Chuyên sản xuất các sản phẩm chất lượng cao, đúng tinh thần cam kết.",
+                footer_menu: "Danh Mục", footer_support: "Hỗ Trợ", footer_head: "Trụ Sở Chính",
+                footer_address: "Giai đoạn 1, Khu A, Thị trấn Sắp đặt Luân Thương, Nam An, Tuyền Châu, Phúc Kiến, Trung Quốc",
+                modal_title: "Yêu Cầu Báo Giá B2B", modal_name: "Tên Của Bạn / Công Ty",
+                modal_email: "Địa Chỉ Email", modal_msg: "Thông Tin Chi Tiết Yêu Cầu (Mẫu mã, Số lượng, OEM)",
+                modal_submit: "Gửi Yêu Cầu", btn_inquiry_now: "Gửi Yêu Cầu Ngay"
+            }
+        };
+
+        // Active State
+        let currentLang = 'en';
+        let currentCategory = 'all';
+
+        // Render dynamic multi-language product grid
+        function renderProducts() {
+            const grid = document.getElementById('main-product-grid');
+            grid.innerHTML = '';
+
+            const filtered = productsDb.filter(p => {
+                return currentCategory === 'all' || p.category === currentCategory;
+            });
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.setAttribute('data-component', 'product-card');
+
+                // Image fallback safety
+                const imgSrc = p.images[currentLang] || p.images['en'];
+
+                const labelLabels = {
+                    en: p.category === 'delay' ? "Delay Valve" : (p.category === 'sensor' ? "Induction Series" : "SS304 Series"),
+                    zh: p.category === 'delay' ? "延时阀系列" : (p.category === 'sensor' ? "冷热感应系列" : "304不锈钢系列"),
+                    ar: p.category === 'delay' ? "صمام تأخير" : (p.category === 'sensor' ? "سلسلة الاستشعار" : "الفولاذ المقاوم للصدأ"),
+                    de: p.category === 'delay' ? "Selbstschluss" : (p.category === 'sensor' ? "Sensor-Serie" : "Edelstahl-Serie"),
+                    es: p.category === 'delay' ? "Temporizada" : (p.category === 'sensor' ? "Línea Sensor" : "Acero Inoxidable"),
+                    vi: p.category === 'delay' ? "Van tự ngắt" : (p.category === 'sensor' ? "Cảm ứng" : "Inox 304")
+                };
+
+                const trInquiryBtn = translation[currentLang]['btn_inquiry_now'] || "Inquiry Now";
+
+                card.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${imgSrc}" alt="${p.title[currentLang]}">
+                    </div>
+                    <div class="product-info-container">
+                        <div>
+                            <span class="product-cat">${labelLabels[currentLang]}</span>
+                            <h3 class="product-title">${p.title[currentLang]}</h3>
+                            <p class="product-desc">${p.desc[currentLang]}</p>
+                        </div>
+                        <button class="btn-inquiry" onclick="openModalWithProduct('${p.id}', '${p.title[currentLang]}')">${trInquiryBtn}</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Switch site language
+        function switchLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+            
+            // RTL handling
+            if (lang === 'ar') {
+                document.documentElement.dir = 'rtl';
+                document.getElementById('main-header').style.direction = 'rtl';
+            } else {
+                document.documentElement.dir = 'ltr';
+                document.getElementById('main-header').style.direction = 'ltr';
+            }
+
+            const langLabels = {
+                en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt"
+            };
+            document.getElementById('current-lang').textContent = langLabels[lang];
+
+            // Localize statutory text
+            const elements = document.querySelectorAll('[data-tr]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-tr');
+                if (translation[lang][key]) {
+                    el.textContent = translation[lang][key];
+                }
+            });
+
+            // Rerender products with localized text and correct RTL labels
+            renderProducts();
+        }
+
+        // Filter product lists
+        function filterCategory(cat) {
+            currentCategory = cat;
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Toggle active state
+            const targetIdx = cat === 'all' ? 0 : (cat === 'delay' ? 1 : (cat === 'sensor' ? 2 : 3));
+            buttons.forEach((btn, i) => {
+                if (i === targetIdx) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            renderProducts();
+        }
+
+        // Header scroll styles
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Modular Modal Form functions
+        function openModal() {
+            document.getElementById('target-product-label').style.display = 'none';
+            document.getElementById('target-product-id').value = '';
+            document.getElementById('inquiry-modal').classList.add('active');
+        }
+
+        function openModalWithProduct(id, title) {
+            const label = document.getElementById('target-product-label');
+            label.style.display = 'block';
+            label.textContent = (currentLang === 'zh' ? "目标采购单品：" : "Inquiry Target: ") + title;
+            document.getElementById('target-product-id').value = id;
+            document.getElementById('inquiry-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('inquiry-modal').classList.remove('active');
+        }
+
+        function submitInquiry(event) {
+            event.preventDefault();
+            const submitBtn = event.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending Inquiry...";
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted Successfully!";
+                submitBtn.style.backgroundColor = "#07C160";
+                
+                setTimeout(() => {
+                    closeModal();
+                    event.target.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.backgroundColor = "var(--primary)";
+                    submitBtn.disabled = false;
+                }, 1500);
+            }, 1200);
+        }
+
+        // Init First Render
+        renderProducts();
+    </script>
 </body>
 </html>
