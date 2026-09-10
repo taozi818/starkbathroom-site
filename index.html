@@ -4,21 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stark Bathroom Hardware | Premier Commercial Sanitary Solutions</title>
-    <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Premium Icons -->
+    <!-- Premium Google Fonts - Minimalist Weight Stack -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #D4AF37; /* Brushed Gold */
-            --primary-dark: #B3922E;
-            --text-light: #F8FAFC;
-            --text-muted: #94A3B8;
-            --bg-body: #090D16; /* Deep Basalt Dark */
-            --bg-card: #131929; /* Slate Carbon Card */
-            --glass-bg: rgba(9, 13, 22, 0.8);
-            --glass-border: rgba(214, 175, 55, 0.15);
-            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            --primary: #000000;
+            --accent: #64748B;
+            --bg-body: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --border-color: rgba(0, 0, 0, 0.06);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.015);
         }
 
         * {
@@ -30,43 +28,43 @@
 
         body {
             background-color: var(--bg-body);
-            color: var(--text-light);
+            color: var(--primary);
             overflow-x: hidden;
             line-height: 1.6;
+            letter-spacing: -0.01em;
         }
 
-        /* RTL adjustments for Arabic */
         [dir="rtl"] {
             font-family: 'Noto Sans Arabic', sans-serif;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
-        /* Glassmorphic Sticky Header - Dark Version */
+        /* Minimalist Navigation Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px;
+            height: 100px;
             z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             transition: var(--transition-smooth);
         }
 
         header.scrolled {
-            height: 75px;
-            background: rgba(9, 13, 22, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
         }
 
         .nav-inner {
@@ -77,29 +75,29 @@
         }
 
         .logo-container img {
-            height: 50px;
-            filter: brightness(1.1) contrast(1.1);
+            height: 48px;
             transition: var(--transition-smooth);
         }
 
         header.scrolled .logo-container img {
-            height: 42px;
+            height: 38px;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-light);
-            font-weight: 500;
+            color: var(--primary);
+            font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition-smooth);
             position: relative;
-            opacity: 0.8;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         nav a::after {
@@ -117,21 +115,16 @@
             width: 100%;
         }
 
-        nav a:hover {
-            color: var(--primary);
-            opacity: 1;
-        }
-
-        /* Language Switcher Button - Dark Gold style */
+        /* Language Selector Toggle */
         .lang-switcher {
             position: relative;
             display: inline-block;
         }
 
         .lang-btn {
-            background: rgba(212, 175, 55, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.4rem;
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
@@ -145,22 +138,22 @@
 
         .lang-btn:hover {
             background: var(--primary);
-            color: #090D16;
+            color: #FFFFFF;
             border-color: var(--primary);
         }
 
         .lang-dropdown {
             position: absolute;
-            top: 120%;
+            top: 125%;
             right: 0;
-            background: #131929;
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
             width: 160px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px);
+            transform: translateY(10px);
             transition: var(--transition-smooth);
             z-index: 1100;
             overflow: hidden;
@@ -174,31 +167,31 @@
 
         .lang-dropdown a {
             display: block;
-            padding: 0.8rem 1.2rem;
-            color: var(--text-light);
+            padding: 0.8rem 1.4rem;
+            color: var(--primary);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: var(--transition-smooth);
             text-align: left;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
         .lang-dropdown a:hover {
-            background: #1C243B;
-            color: var(--primary);
-            padding-left: 1.5rem;
+            background: var(--bg-secondary);
+            padding-left: 1.8rem;
         }
 
-        /* 3D Parallax Hero Section - Ultra Deep Dark */
+        /* Haiman style Fullscreen Hero */
         .hero {
             position: relative;
             height: 100vh;
-            min-height: 800px;
-            background-color: #05070E;
+            min-height: 850px;
+            background-color: var(--bg-secondary);
             overflow: hidden;
             display: flex;
             align-items: center;
-            color: #FFFFFF;
         }
 
         .hero-bg {
@@ -207,11 +200,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: linear-gradient(rgba(5, 7, 14, 0.6), rgba(5, 7, 14, 0.95)), url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg');
+            background-image: linear-gradient(rgba(248, 250, 252, 0.45), rgba(248, 250, 252, 0.85)), url('assets/raw_materials/资料准备说明/公司资料/1.工厂大门图、车间生产图/微信图片_2026-09-10_142817_895.jpg');
             background-size: cover;
             background-position: center;
-            transform: scale(1.05);
-            transition: transform 12s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: scale(1.02);
+            transition: transform 10s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1;
         }
 
@@ -222,27 +215,25 @@
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 850px;
-            padding-top: 50px;
+            max-width: 900px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
-            background: linear-gradient(135deg, #FFFFFF 50%, #D4AF37 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            line-height: 1.05;
+            margin-bottom: 2rem;
+            letter-spacing: -0.04em;
+            color: var(--primary);
         }
 
         .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
+            font-size: 1.3rem;
+            color: var(--accent);
+            margin-bottom: 3.5rem;
             font-weight: 300;
             max-width: 650px;
+            line-height: 1.7;
         }
 
         .cta-group {
@@ -254,58 +245,57 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1.1rem 2.5rem;
+            padding: 1.2rem 3rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: var(--transition-smooth);
             cursor: pointer;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
             background-color: var(--primary);
-            color: #090D16;
-            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
+            color: #FFFFFF;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-hover);
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.35);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
         }
 
         .btn-secondary {
             background-color: transparent;
-            color: #FFFFFF;
-            border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
+            color: var(--primary);
+            border: 1px solid var(--primary);
         }
 
         .btn-secondary:hover {
-            background-color: rgba(255,255,255,0.05);
-            border-color: var(--primary);
-            color: var(--primary);
+            background-color: var(--primary);
+            color: #FFFFFF;
             transform: translateY(-3px);
         }
 
-        /* Stats Bar - Carbon Dark Style */
+        /* Floating stats grid - Minimalist */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            background: var(--bg-card);
-            border-radius: 24px;
-            padding: 3rem;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 100px rgba(0,0,0,0.4);
-            margin-top: -100px;
+            gap: 4rem;
+            background: #FFFFFF;
+            border-radius: 0 0 32px 32px;
+            padding: 4rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 0;
             position: relative;
             z-index: 10;
         }
 
         .stat-card {
             text-align: center;
-            border-right: 1px solid var(--glass-border);
+            border-right: 1px solid var(--border-color);
         }
 
         .stat-card:last-child {
@@ -313,155 +303,159 @@
         }
 
         .stat-number {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
             color: var(--primary);
             line-height: 1;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.03em;
         }
 
         .stat-label {
             font-size: 0.95rem;
-            color: var(--text-muted);
-            font-weight: 500;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* About Section */
+        /* Elegant B2B profile section */
         .about-section {
-            padding: 10rem 0;
-            background-color: var(--bg-body);
+            padding: 12rem 0;
+            background-color: #FFFFFF;
         }
 
         .section-header {
             text-align: center;
-            max-width: 700px;
-            margin: 0 auto 6rem;
+            max-width: 800px;
+            margin: 0 auto 8rem;
         }
 
         .section-tag {
-            color: var(--primary);
+            color: var(--accent);
             font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.2em;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
         .section-title {
-            font-size: 2.75rem;
+            font-size: 3.25rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
-            color: var(--text-light);
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--primary);
         }
 
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: 8rem;
             align-items: center;
         }
 
         .about-text h2 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
             line-height: 1.2;
-            color: #FFFFFF;
+            letter-spacing: -0.02em;
         }
 
         .about-text p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            color: var(--accent);
+            font-size: 1.15rem;
+            margin-bottom: 3rem;
+            line-height: 1.75;
         }
 
         .advantage-card {
             display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-radius: 16px;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 20px;
             border: 1px solid transparent;
             transition: var(--transition-smooth);
         }
 
         .advantage-card:hover {
-            background-color: var(--bg-card);
-            border-color: var(--glass-border);
-            transform: translateX(10px);
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+            transform: translateX(12px);
         }
 
         .adv-icon {
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             border-radius: 50px;
-            background: rgba(212, 175, 55, 0.08);
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
             font-size: 1.5rem;
             flex-shrink: 0;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--border-color);
         }
 
         .adv-content h3 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: #FFFFFF;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
         }
 
         .adv-content p {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: var(--accent);
             margin: 0;
+            line-height: 1.6;
         }
 
-        /* Showcase Gallery */
+        /* Showcase Gallery - Clean White Line Style */
         .showcase-gallery {
-            background-color: #05070E;
-            padding: 8rem 0;
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
+            background-color: var(--bg-secondary);
+            padding: 10rem 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .showcase-tabs {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .tab-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            padding: 0.9rem 2rem;
+            background: #FFFFFF;
+            border: 1px solid var(--border-color);
+            padding: 1rem 2.5rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: var(--accent);
             cursor: pointer;
             transition: var(--transition-smooth);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-subtle);
         }
 
         .tab-btn.active, .tab-btn:hover {
             background-color: var(--primary);
-            color: #090D16;
+            color: #FFFFFF;
             border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .gallery-viewport {
             position: relative;
-            border-radius: 24px;
+            border-radius: 32px;
             overflow: hidden;
-            height: 550px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+            height: 600px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
         }
 
         .gallery-slide {
@@ -477,7 +471,7 @@
             transition: var(--transition-smooth);
             display: flex;
             align-items: flex-end;
-            padding: 4rem;
+            padding: 5rem;
         }
 
         .gallery-slide.active {
@@ -491,7 +485,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
             z-index: 1;
         }
 
@@ -499,96 +493,81 @@
             position: relative;
             z-index: 2;
             color: #FFFFFF;
-            max-width: 600px;
+            max-width: 650px;
         }
 
         .gallery-info h3 {
-            font-size: 2.25rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.02em;
         }
 
         .gallery-info p {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.8);
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.85);
             font-weight: 300;
+            line-height: 1.6;
         }
 
-        /* Certifications Backing Section - Gold Accented */
+        /* Certifications Backing Section */
         .cert-section {
-            padding: 8rem 0;
-            background: var(--bg-body);
+            padding: 10rem 0;
+            background: #FFFFFF;
         }
 
         .cert-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2.5rem;
-            margin-top: 4rem;
+            gap: 3rem;
+            margin-top: 5rem;
         }
 
         .cert-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
             text-align: center;
             transition: var(--transition-smooth);
+            background: var(--bg-secondary);
         }
 
         .cert-card:hover {
-            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.08);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.03);
             transform: translateY(-8px);
             border-color: var(--primary);
+            background: #FFFFFF;
         }
 
         .cert-card img {
-            height: 140px;
+            height: 150px;
             object-fit: contain;
-            margin-bottom: 2rem;
-            filter: grayscale(1) brightness(1.2);
+            margin-bottom: 2.5rem;
             transition: var(--transition-smooth);
         }
 
-        .cert-card:hover img {
-            filter: grayscale(0) brightness(1);
-        }
-
         .cert-card h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 0.5rem;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
         }
 
         .cert-card p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.95rem;
+            color: var(--accent);
         }
 
-        /* Inquiry CTA Floating Box */
+        /* Lead Inquiry Section */
         .inquiry-banner {
-            background-color: var(--bg-card);
+            background-color: var(--primary);
             border-radius: 32px;
-            padding: 6rem;
+            padding: 7rem;
             color: #FFFFFF;
             position: relative;
             overflow: hidden;
             margin-bottom: -100px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
-        }
-
-        .inquiry-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            border-radius: 500px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
         }
 
         .inquiry-banner-inner {
@@ -597,25 +576,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 4rem;
+            gap: 5rem;
         }
 
         .inquiry-banner-text h2 {
-            font-size: 3rem;
+            font-size: 3.25rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            letter-spacing: -0.02em;
-            color: #FFFFFF;
+            letter-spacing: -0.03em;
         }
 
         .inquiry-banner-text p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
+            font-size: 1.25rem;
+            color: rgba(255,255,255,0.8);
             font-weight: 300;
-            max-width: 600px;
+            max-width: 650px;
+            line-height: 1.7;
         }
 
-        /* Modular Inquiry Form - Golden Trim */
+        /* Interactive Form Modal */
         .modal {
             position: fixed;
             top: 0;
@@ -623,9 +602,9 @@
             width: 100%;
             height: 100%;
             z-index: 2000;
-            background: rgba(5, 7, 14, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -640,17 +619,16 @@
         }
 
         .modal-card {
-            background: var(--bg-card);
-            border-radius: 28px;
+            background: #FFFFFF;
+            border-radius: 32px;
             width: 100%;
             max-width: 650px;
-            padding: 3rem;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.8);
-            border: 1px solid var(--glass-border);
+            padding: 4rem;
+            box-shadow: 0 40px 120px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
             position: relative;
             transform: scale(0.9);
             transition: var(--transition-smooth);
-            color: #FFFFFF;
         }
 
         .modal.active .modal-card {
@@ -659,84 +637,85 @@
 
         .close-btn {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(255,255,255,0.05);
+            top: 2.5rem;
+            right: 2.5rem;
+            background: var(--bg-secondary);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: var(--text-light);
+            font-size: 1.2rem;
+            color: var(--primary);
             transition: var(--transition-smooth);
         }
 
         .close-btn:hover {
             background: var(--primary);
-            color: #090D16;
+            color: #FFFFFF;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
             font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            color: var(--text-light);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .form-control {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
-            background: var(--bg-body);
-            font-size: 0.95rem;
-            color: #FFFFFF;
+            padding: 1.1rem 1.6rem;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            font-size: 1rem;
+            color: var(--primary);
             transition: var(--transition-smooth);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            background: #1C243B;
-            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+            background: #FFFFFF;
+            box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.03);
         }
 
-        /* Global Footer - Dark Steel */
+        /* Footer */
         footer {
-            background-color: #05070E;
+            background-color: #000000;
             color: #FFFFFF;
-            padding: 14rem 0 4rem;
-            border-top: 1px solid var(--glass-border);
+            padding: 16rem 0 4rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 4rem;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             padding-bottom: 6rem;
             margin-bottom: 4rem;
         }
 
         .footer-brand h2 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
-            color: var(--primary);
         }
 
         .footer-brand p {
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             font-size: 0.95rem;
             line-height: 1.8;
             margin-bottom: 2rem;
@@ -744,10 +723,11 @@
         }
 
         .footer-links h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: #FFFFFF;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .footer-links ul {
@@ -755,18 +735,18 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .footer-links ul li a {
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
             transition: var(--transition-smooth);
             font-size: 0.95rem;
         }
 
         .footer-links ul li a:hover {
-            color: var(--primary);
+            color: #FFFFFF;
             padding-left: 0.5rem;
         }
 
@@ -774,40 +754,39 @@
             display: flex;
             align-items: flex-start;
             gap: 1rem;
-            color: var(--text-muted);
+            color: rgba(255,255,255,0.6);
             font-size: 0.95rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .footer-contact i {
-            color: var(--primary);
-            font-size: 1.1rem;
+            color: #FFFFFF;
+            font-size: 1.15rem;
             margin-top: 0.2rem;
         }
 
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .social-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50px;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.04);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFFFFF;
             text-decoration: none;
             transition: var(--transition-smooth);
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         .social-icon:hover {
-            background-color: var(--primary);
-            color: #090D16;
-            border-color: var(--primary);
+            background-color: #FFFFFF;
+            color: #000000;
             transform: translateY(-3px);
         }
 
@@ -819,7 +798,7 @@
             font-size: 0.9rem;
         }
 
-        /* Communication floating button widget */
+        /* Floating communication tools */
         .floating-widget {
             position: fixed;
             bottom: 2rem;
@@ -839,7 +818,7 @@
             justify-content: center;
             color: #FFFFFF;
             font-size: 1.8rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             transition: var(--transition-smooth);
             cursor: pointer;
             text-decoration: none;
@@ -855,23 +834,22 @@
 
         .widget-email {
             background-color: var(--primary);
-            color: #090D16;
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- STICKY HEADER -->
     <header id="main-header">
         <div class="container nav-inner">
             <a href="index.html" class="logo-container">
-                <img src="https://sc04.alicdn.com/kf/A9fd09c8f7163419ba723398c19a430f7T.jpg" alt="Stark Hardware">
+                <img src="assets/raw_materials/资料准备说明/公司logo/微信图片_2026-09-10_142116_213.png" alt="Stark Hardware" id="brand-logo">
             </a>
             <nav>
                 <a href="index.html" class="active" data-tr="nav_home">Home</a>
                 <a href="products.html" data-tr="nav_products">Products</a>
                 <a href="services.html" data-tr="nav_services">Services</a>
-                <!-- Language drop block -->
+                <!-- Language drop -->
                 <div class="lang-switcher">
                     <button class="lang-btn"><i class="fa-solid fa-globe"></i> <span id="current-lang">English</span> <i class="fa-solid fa-chevron-down"></i></button>
                     <div class="lang-dropdown">
@@ -887,7 +865,7 @@
         </div>
     </header>
 
-    <!-- 3D HERO BANNER -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-bg"></div>
         <div class="container">
@@ -902,7 +880,7 @@
         </div>
     </section>
 
-    <!-- TRUST STATS BAR -->
+    <!-- STATS BAR -->
     <section class="container" style="position: relative; z-index: 10;">
         <div class="stats-grid">
             <div class="stat-card">
@@ -924,7 +902,7 @@
         </div>
     </section>
 
-    <!-- ADVANTAGE SECTION -->
+    <!-- ABOUT SECTION -->
     <section class="about-section">
         <div class="container">
             <div class="section-header">
@@ -956,7 +934,7 @@
         </div>
     </section>
 
-    <!-- MANUFACTURING GALLERY -->
+    <!-- FACTORY SHOWCASE -->
     <section class="showcase-gallery">
         <div class="container">
             <div class="section-header">
@@ -971,7 +949,7 @@
             </div>
             <div class="gallery-viewport">
                 <!-- Slide 0 -->
-                <div class="gallery-slide active" style="background-image: url('https://sc04.alicdn.com/kf/A1d75ac1920a34ce384812818a7456714f.jpg')">
+                <div class="gallery-slide active" style="background-image: url('assets/raw_materials/资料准备说明/公司资料/1.工厂大门图、车间生产图/微信图片_2026-09-10_142817_895.jpg')">
                     <div class="gallery-overlay"></div>
                     <div class="gallery-info">
                         <h3 data-tr="slide0_title">Modern Industrial Plant</h3>
@@ -979,7 +957,7 @@
                     </div>
                 </div>
                 <!-- Slide 1 -->
-                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/Aa88720c6a82b4a339aa72cd67e7f9b12E.jpg')">
+                <div class="gallery-slide" style="background-image: url('assets/raw_materials/资料准备说明/公司资料/3.生产流程/微信图片_2026-09-10_142710_229.png')">
                     <div class="gallery-overlay"></div>
                     <div class="gallery-info">
                         <h3 data-tr="slide1_title">Precision CNC Machining</h3>
@@ -987,7 +965,7 @@
                     </div>
                 </div>
                 <!-- Slide 2 -->
-                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/A58b88c72a4684097945c8868647cf7a2Y.jpg')">
+                <div class="gallery-slide" style="background-image: url('assets/raw_materials/资料准备说明/公司资料/3.生产流程/微信图片_20260910142646.jpg')">
                     <div class="gallery-overlay"></div>
                     <div class="gallery-info">
                         <h3 data-tr="slide2_title">Standards Assembly Line</h3>
@@ -995,7 +973,7 @@
                     </div>
                 </div>
                 <!-- Slide 3 -->
-                <div class="gallery-slide" style="background-image: url('https://sc04.alicdn.com/kf/Adf2f008ad6154299a07d187c389e5dcbh.jpg')">
+                <div class="gallery-slide" style="background-image: url('assets/raw_materials/资料准备说明/公司资料/4.包装发货/微信图片_2026-09-10_142751_137.jpg')">
                     <div class="gallery-overlay"></div>
                     <div class="gallery-info">
                         <h3 data-tr="slide3_title">Logistics & Worldwide Packing</h3>
@@ -1006,7 +984,7 @@
         </div>
     </section>
 
-    <!-- INTERNATIONAL CERTIFICATION MARKS -->
+    <!-- CERTIFICATES -->
     <section class="cert-section">
         <div class="container">
             <div class="section-header">
@@ -1015,22 +993,22 @@
             </div>
             <div class="cert-grid">
                 <div class="cert-card">
-                    <img src="https://sc04.alicdn.com/kf/A05a9d2b6f92b4c238d7883edf782ae4b4.jpg" alt="WaterMark">
+                    <img src="assets/raw_materials/资料准备说明/公司资料/8.证书/微信图片_2026-09-10_142508_137.jpg" alt="WaterMark">
                     <h3 data-tr="cert1_name">Australia Certification</h3>
                     <p data-tr="cert1_desc">WaterMark compliant hardware</p>
                 </div>
                 <div class="cert-card">
-                    <img src="https://sc04.alicdn.com/kf/A502b049f4b354b4b966beaefa463c63fN.jpg" alt="CE Mark">
+                    <img src="assets/raw_materials/资料准备说明/公司资料/8.证书/微信图片_2026-09-10_142857_484.jpg" alt="CE Mark">
                     <h3 data-tr="cert2_name">CE & European Directives</h3>
                     <p data-tr="cert2_desc">Eco-design and metal standards</p>
                 </div>
                 <div class="cert-card">
-                    <img src="https://sc04.alicdn.com/kf/Adf2f008ad6154299a07d187c389e5dcbh.jpg" alt="ISO 9001">
+                    <img src="assets/raw_materials/资料准备说明/公司资料/8.证书/微信图片_20260910142425.jpg" alt="ISO 9001">
                     <h3 data-tr="cert3_name">ISO 9001 Management</h3>
                     <p data-tr="cert3_desc">Strict QA manufacturing process</p>
                 </div>
                 <div class="cert-card">
-                    <img src="https://sc04.alicdn.com/kf/Acec232e10729422bb3426e2fc891d16dF.jpg" alt="cUPC">
+                    <img src="assets/raw_materials/资料准备说明/公司资料/8.证书/微信图片_20260910142455.jpg" alt="cUPC">
                     <h3 data-tr="cert4_name">North American Standards</h3>
                     <p data-tr="cert4_desc">Low-lead brass and flow limits</p>
                 </div>
@@ -1038,7 +1016,7 @@
         </div>
     </section>
 
-    <!-- INLINE FLOATING LEAD BANNER -->
+    <!-- LEAD BANNER -->
     <section class="container" style="margin-bottom: -100px;">
         <div class="inquiry-banner">
             <div class="inquiry-banner-inner">
@@ -1096,7 +1074,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE INQUIRY MODAL -->
+    <!-- MODAL -->
     <div class="modal" id="inquiry-modal">
         <div class="modal-card">
             <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -1125,9 +1103,8 @@
         <a href="mailto:dadadajiehui@gmail.com" class="widget-btn widget-email" title="Email Inquiry"><i class="fa-solid fa-envelope"></i></a>
     </div>
 
-    <!-- TRANSLATION SCRIPT -->
+    <!-- MAIN TRANSLATION SCRIPT -->
     <script>
-        // Language Matrix Dictionary
         const translation = {
             en: {
                 nav_home: "Home", nav_products: "Products", nav_services: "Services",
@@ -1167,7 +1144,7 @@
                 hero_subtitle: "20余年专注制造，坐落于中国卫浴水暖之乡——福建南安仑苍，掌握核心工艺流程。",
                 hero_cta_primary: "浏览产品", hero_cta_secondary: "获取报价",
                 stat_exp: "年 OEM/ODM 研发经验", stat_contract: "恪守合同与诚信契约", stat_cert: "国际质量标准认证", stat_sample: "7-15天快速出样",
-                about_tag: "关于斯塔克", about_title: "全球卫浴五金供应链",
+                about_tag: "关于斯塔克", about_title: "全球卫浴五金卓越供应链",
                 about_subtitle: "南安英都斯塔克五金有限公司",
                 about_p: "公司位于中国最大的水暖卫浴产业基地——福建南安仑苍镇。借助完整的产业链集群优势（铸造、精密加工、电镀、装配、检测），为全球买家提供极具成本优势的高效服务。",
                 adv1_title: "重诚信与契约精神", adv1_desc: "严格履行每一项契约承诺，确保准时交货、品质如一，与美、欧、澳等地买家建立长久战略合作关系。",
@@ -1248,7 +1225,7 @@
                 cert3_name: "ISO 9001 Management", cert3_desc: "Streng kontrollierter Fertigungsprozess",
                 cert4_name: "Nordamerikanische Standards", cert4_desc: "Erfüllt die strengen Anforderungen an Bleifreiheit und Durchflussmengen",
                 banner_title: "Bereit, Ihr Geschäft auszubauen?",
-                banner_desc: "Fordern Sie ein individuelles Angebot, Muster oder Kataloge an. Unser internationales Verkaufsteam antwortet innerhalb von 12 Stunden.",
+                banner_desc: "Fordern Sie ein individuelles Angebot, Muster oder Kataloge an. Unser internationales Verkaufsteam antwortet innerhalb von 12 voraus.",
                 banner_btn: "Jetzt Anfrage Senden",
                 footer_desc: "Ihr zuverlässiger B2B-Partner für Sanitärfertigung. Spezialisiert auf designorientierte Armaturen und höchste Vertragstreue.",
                 footer_menu: "Hauptmenü", footer_support: "Support", footer_head: "Hauptsitz",
@@ -1295,7 +1272,7 @@
                 hero_subtitle: "Hơn 20 năm kinh nghiệm chế tạo hoàn hảo, trực tiếp từ Thiết bị vệ sinh huyền thoại Luân Thương, Nam An.",
                 hero_cta_primary: "Khám Phá Sản Phẩm", hero_cta_secondary: "Nhận Báo Giá",
                 stat_exp: "Năm Kinh nghiệm OEM/ODM", stat_contract: "Uy Tín & Cam Kết", stat_cert: "Chứng Nhận WaterMark/CE", stat_sample: "Ngày Làm Mẫu Nhanh",
-                about_tag: "Tại Sao Chọn Stark", about_title: "Nhà Máy Sản Xuất Thiết Bị Vệ Sinh Đạt Tiêu Chuẩn Toàn Cầu",
+                about_tag: "Tại Sao Chọn Stark", about_title: "Nhà Máy Sản Xuất Thiết Bị Vệ Sinh Đạt Tiêu Chuản Toàn Cầu",
                 about_subtitle: "Công ty TNHH Phần cứng Stark Nam An Anh Đô",
                 about_p: "Tọa lạc tại thị trấn Luân Thương, tỉnh Phúc Kiến - cụm công nghiệp sản xuất vòi nước và đường ống lớn nhất Trung Quốc. Chúng tôi sở hữu chuỗi cung ứng khép kín từ đúc, gia công CNC, mạ điện và đóng gói.",
                 adv1_title: "Tinh thần Cam kết & Uy tín", adv1_desc: "Tuân thủ nghiêm ngặt mọi cam kết, đảm bảo giao hàng đúng hẹn, chất lượng đồng đều và truyền thông minh bạch cho các đối tác toàn cầu.",
@@ -1323,14 +1300,11 @@
             }
         };
 
-        // Current Active Language state
         let currentLang = 'en';
 
         function switchLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
-            
-            // Handle RTL layout for Arabic
             if (lang === 'ar') {
                 document.documentElement.dir = 'rtl';
                 document.getElementById('main-header').style.direction = 'rtl';
@@ -1338,78 +1312,46 @@
                 document.documentElement.dir = 'ltr';
                 document.getElementById('main-header').style.direction = 'ltr';
             }
-
-            // Update Language Toggle Button Label
-            const langLabels = {
-                en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt"
-            };
+            const langLabels = { en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt" };
             document.getElementById('current-lang').textContent = langLabels[lang];
-
-            // Perform DOM localization mapping
-            const elements = document.querySelectorAll('[data-tr]');
-            elements.forEach(el => {
+            document.querySelectorAll('[data-tr]').forEach(el => {
                 const key = el.getAttribute('data-tr');
-                if (translation[lang][key]) {
-                    el.textContent = translation[lang][key];
-                }
+                if (translation[lang][key]) el.textContent = translation[lang][key];
             });
         }
 
-        // 3D Tab Slide Control
         function switchTab(index) {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const slides = document.querySelectorAll('.gallery-slide');
-            
-            tabs.forEach((tab, i) => {
+            document.querySelectorAll('.tab-btn').forEach((tab, i) => {
                 if (i === index) tab.classList.add('active');
                 else tab.classList.remove('active');
             });
-
-            slides.forEach((slide, i) => {
+            document.querySelectorAll('.gallery-slide').forEach((slide, i) => {
                 if (i === index) slide.classList.add('active');
                 else slide.classList.remove('active');
             });
         }
 
-        // Header Scrolling Effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Interactive Inquiry modal controller
-        function openModal() {
-            document.getElementById('inquiry-modal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('inquiry-modal').classList.remove('active');
-        }
+        function openModal() { document.getElementById('inquiry-modal').classList.add('active'); }
+        function closeModal() { document.getElementById('inquiry-modal').classList.remove('active'); }
 
         function submitInquiry(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            // Advanced visual feedback animation
             const submitBtn = event.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending Inquiry...";
+            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending...";
             submitBtn.disabled = true;
-
             setTimeout(() => {
-                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted Successfully!";
+                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted!";
                 submitBtn.style.backgroundColor = "#07C160";
-                
                 setTimeout(() => {
                     closeModal();
                     event.target.reset();
-                    // Reset Button
                     submitBtn.textContent = originalText;
                     submitBtn.style.backgroundColor = "var(--primary)";
                     submitBtn.disabled = false;

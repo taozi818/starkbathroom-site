@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OEM & ODM Custom Manufacturing Services | Stark Hardware</title>
     <!-- Premium Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #0052FF;
-            --primary-dark: #003EB3;
-            --text-dark: #0F172A;
-            --text-muted: #64748B;
-            --bg-light: #F8FAFC;
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-border: rgba(255, 255, 255, 0.4);
-            --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            --shadow-premium: 0 20px 40px rgba(15, 23, 42, 0.04);
+            --primary: #000000;
+            --accent: #64748B;
+            --bg-body: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --border-color: rgba(0, 0, 0, 0.06);
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --shadow-subtle: 0 10px 40px rgba(0, 0, 0, 0.015);
         }
 
         * {
@@ -29,10 +27,11 @@
         }
 
         body {
-            background-color: #F8FAFC;
-            color: var(--text-dark);
+            background-color: var(--bg-body);
+            color: var(--primary);
             overflow-x: hidden;
             line-height: 1.6;
+            letter-spacing: -0.01em;
         }
 
         [dir="rtl"] {
@@ -40,32 +39,32 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 3rem;
         }
 
-        /* Glassmorphic Sticky Header */
+        /* Sticky Header */
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 90px;
+            height: 100px;
             z-index: 1000;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             align-items: center;
             transition: var(--transition-smooth);
         }
 
         header.scrolled {
-            height: 75px;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
         }
 
         .nav-inner {
@@ -76,27 +75,29 @@
         }
 
         .logo-container img {
-            height: 50px;
+            height: 48px;
             transition: var(--transition-smooth);
         }
 
         header.scrolled .logo-container img {
-            height: 42px;
+            height: 38px;
         }
 
         nav {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 4rem;
         }
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
+            color: var(--primary);
+            font-weight: 600;
             font-size: 0.95rem;
             transition: var(--transition-smooth);
             position: relative;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         nav a::after {
@@ -114,10 +115,6 @@
             width: 100%;
         }
 
-        nav a:hover {
-            color: var(--primary);
-        }
-
         /* Language Switcher */
         .lang-switcher {
             position: relative;
@@ -125,9 +122,9 @@
         }
 
         .lang-btn {
-            background: rgba(0, 82, 255, 0.05);
-            border: 1px solid rgba(0, 82, 255, 0.1);
-            padding: 0.6rem 1.2rem;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.4rem;
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
@@ -147,16 +144,16 @@
 
         .lang-dropdown {
             position: absolute;
-            top: 120%;
+            top: 125%;
             right: 0;
             background: #FFFFFF;
-            border: 1px solid rgba(0,0,0,0.06);
-            border-radius: 16px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
             width: 160px;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(15px);
+            transform: translateY(10px);
             transition: var(--transition-smooth);
             z-index: 1100;
             overflow: hidden;
@@ -170,19 +167,20 @@
 
         .lang-dropdown a {
             display: block;
-            padding: 0.8rem 1.2rem;
-            color: var(--text-dark);
+            padding: 0.8rem 1.4rem;
+            color: var(--primary);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
             transition: var(--transition-smooth);
             text-align: left;
+            text-transform: none;
+            letter-spacing: 0;
         }
 
         .lang-dropdown a:hover {
-            background: var(--bg-light);
-            color: var(--primary);
-            padding-left: 1.5rem;
+            background: var(--bg-secondary);
+            padding-left: 1.8rem;
         }
 
         /* Mini Hero Section */
@@ -190,7 +188,7 @@
             padding: 12rem 0 6rem;
             background-color: #FFFFFF;
             text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .hero-mini h1 {
@@ -198,18 +196,18 @@
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 1rem;
-            color: var(--text-dark);
+            color: var(--primary);
         }
 
         .hero-mini p {
             font-size: 1.2rem;
-            color: var(--text-muted);
+            color: var(--accent);
             font-weight: 300;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        /* B2B Services Grid Layout */
+        /* Services Grid Layout */
         .services-section {
             padding: 8rem 0;
         }
@@ -217,37 +215,38 @@
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+            gap: 3rem;
             margin-bottom: 6rem;
         }
 
         .service-card {
             background: #FFFFFF;
-            border-radius: 24px;
-            padding: 3rem;
-            box-shadow: var(--shadow-premium);
-            border: 1px solid rgba(0,0,0,0.02);
+            border-radius: 28px;
+            padding: 3.5rem;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-color);
             transition: var(--transition-smooth);
         }
 
         .service-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
-            border-color: rgba(0, 82, 255, 0.15);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.03);
+            border-color: var(--primary);
         }
 
         .service-icon {
             width: 70px;
             height: 70px;
             border-radius: 50px;
-            background: rgba(0, 82, 255, 0.08);
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
             font-size: 1.8rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             transition: var(--transition-smooth);
+            border: 1px solid var(--border-color);
         }
 
         .service-card:hover .service-icon {
@@ -258,15 +257,16 @@
 
         .service-card h3 {
             font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
         }
 
         .service-card p {
             font-size: 0.95rem;
-            color: var(--text-muted);
+            color: var(--accent);
             margin-bottom: 0;
+            line-height: 1.7;
         }
 
         /* OEM Flow Section */
@@ -289,8 +289,8 @@
         }
 
         .flow-step-num {
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
             border-radius: 50px;
             background-color: var(--primary);
             color: #FFFFFF;
@@ -299,8 +299,8 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 82, 255, 0.3);
+            margin-bottom: 1.8rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border: 4px solid #FFFFFF;
             z-index: 5;
             position: relative;
@@ -309,11 +309,11 @@
         .flow-node::before {
             content: '';
             position: absolute;
-            top: 25px;
+            top: 27px;
             left: 50%;
             width: 100%;
             height: 2px;
-            background-color: rgba(0,0,0,0.06);
+            background-color: var(--border-color);
             z-index: 1;
         }
 
@@ -322,19 +322,20 @@
         }
 
         .flow-node h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
         }
 
         .flow-node p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            font-size: 0.95rem;
+            color: var(--accent);
             max-width: 240px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
-        /* Interactive Inquiry Modal Form */
+        /* Interactive Form Modal */
         .modal {
             position: fixed;
             top: 0;
@@ -342,9 +343,9 @@
             width: 100%;
             height: 100%;
             z-index: 2000;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -360,12 +361,12 @@
 
         .modal-card {
             background: #FFFFFF;
-            border-radius: 28px;
+            border-radius: 32px;
             width: 100%;
             max-width: 650px;
-            padding: 3rem;
-            box-shadow: 0 30px 100px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255,255,255,0.2);
+            padding: 4rem;
+            box-shadow: 0 40px 120px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
             position: relative;
             transform: scale(0.9);
             transition: var(--transition-smooth);
@@ -377,19 +378,19 @@
 
         .close-btn {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: rgba(0,0,0,0.03);
+            top: 2.5rem;
+            right: 2.5rem;
+            background: var(--bg-secondary);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: var(--text-dark);
+            font-size: 1.2rem;
+            color: var(--primary);
             transition: var(--transition-smooth);
         }
 
@@ -399,24 +400,27 @@
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
         }
 
         .form-group label {
             display: block;
             font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
-            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .form-control {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.1);
-            background: var(--bg-light);
-            font-size: 0.95rem;
+            padding: 1.1rem 1.6rem;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+            font-size: 1rem;
+            color: var(--primary);
             transition: var(--transition-smooth);
         }
 
@@ -424,27 +428,28 @@
             outline: none;
             border-color: var(--primary);
             background: #FFFFFF;
-            box-shadow: 0 0 0 4px rgba(0, 82, 255, 0.1);
+            box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.03);
         }
 
         /* Footer */
         footer {
-            background-color: var(--text-dark);
+            background-color: #000000;
             color: #FFFFFF;
-            padding: 8rem 0 4rem;
+            padding: 10rem 0 4rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
             gap: 4rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             padding-bottom: 6rem;
             margin-bottom: 4rem;
         }
 
         .footer-brand h2 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
             letter-spacing: -0.02em;
@@ -459,9 +464,11 @@
         }
 
         .footer-links h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
         .footer-links ul {
@@ -469,7 +476,7 @@
         }
 
         .footer-links ul li {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
 
         .footer-links ul li a {
@@ -480,7 +487,7 @@
         }
 
         .footer-links ul li a:hover {
-            color: var(--primary);
+            color: #FFFFFF;
             padding-left: 0.5rem;
         }
 
@@ -490,35 +497,37 @@
             gap: 1rem;
             color: rgba(255,255,255,0.6);
             font-size: 0.95rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.4rem;
         }
 
         .footer-contact i {
-            color: var(--primary);
-            font-size: 1.1rem;
+            color: #FFFFFF;
+            font-size: 1.15rem;
             margin-top: 0.2rem;
         }
 
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
         }
 
         .social-icon {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.04);
             display: flex;
             align-items: center;
             justify-content: center;
             color: #FFFFFF;
             text-decoration: none;
             transition: var(--transition-smooth);
+            border: 1px solid rgba(255,255,255,0.06);
         }
 
         .social-icon:hover {
-            background-color: var(--primary);
+            background-color: #FFFFFF;
+            color: #000000;
             transform: translateY(-3px);
         }
 
@@ -526,7 +535,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: rgba(255,255,255,0.4);
+            color: rgba(255,255,255,0.3);
             font-size: 0.9rem;
         }
 
@@ -550,7 +559,7 @@
             justify-content: center;
             color: #FFFFFF;
             font-size: 1.8rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             transition: var(--transition-smooth);
             cursor: pointer;
             text-decoration: none;
@@ -575,7 +584,7 @@
     <header id="main-header">
         <div class="container nav-inner">
             <a href="index.html" class="logo-container">
-                <img src="https://sc04.alicdn.com/kf/A9fd09c8f7163419ba723398c19a430f7T.jpg" alt="Stark Hardware">
+                <img src="assets/raw_materials/资料准备说明/公司logo/微信图片_2026-09-10_142116_213.png" alt="Stark Hardware" id="brand-logo">
             </a>
             <nav>
                 <a href="index.html" data-tr="nav_home">Home</a>
@@ -664,7 +673,7 @@
         </div>
     </section>
 
-    <!-- INLINE FLOATING LEAD BANNER -->
+    <!-- LEAD BANNER -->
     <section class="container" style="margin-bottom: -100px;">
         <div class="inquiry-banner">
             <div class="inquiry-banner-inner">
@@ -722,7 +731,7 @@
         </div>
     </footer>
 
-    <!-- INTERACTIVE INQUIRY MODAL -->
+    <!-- INQUIRY MODAL -->
     <div class="modal" id="inquiry-modal">
         <div class="modal-card">
             <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -753,7 +762,6 @@
 
     <!-- TRANSLATION SCRIPT -->
     <script>
-        // Language Matrix Dictionary
         const translation = {
             en: {
                 nav_home: "Home", nav_products: "Products", nav_services: "Services",
@@ -784,7 +792,7 @@
                 srv_hero_desc: "立足福建南安仑苍“中国水暖城”核心产区，20余年卫浴外贸研发积淀，为全球客商交付高契合度定制件。",
                 srv_tag: "专业定制实力", srv_title: "一站式全工序工业定制体系",
                 srv1_title: "联合工业设计与3D打样", srv1_desc: "专业R&D团队无缝融合全球最新卫浴美学，支持2D/3D工程制图，提供高频、精确的可行性评估方案。",
-                srv2_title: "极富弹性的 OEM/ODM 选项", srv2_desc: "支持激光打标/钢印、特殊电镀工艺（哑光黑、PVD拉丝拉丝、太空灰）、特种螺纹定制及限定流量件开发。",
+                srv2_title: "极富弹性的 OEM/ODM 选项", srv2_desc: "支持激光打标/钢印、特殊电镀工艺（哑光黑、PVD拉丝金、太空灰）、特种螺纹定制及限定流量件开发。",
                 srv3_title: "多国市场全准入保障", srv3_desc: "选用低铅精铜、无毒304不锈钢及进口阀芯，每款定制产品出厂均通过多重国际标准认证（CE, WaterMark, cUPC）。",
                 flow_tag: "定制合作流程", flow_title: "从图纸蓝图到全球安全交付",
                 step1_title: "需求技术沟通", step1_desc: "确认定制图纸、材质、表面工艺、流量限制及目标市场的认证门槛。",
@@ -811,7 +819,7 @@
                 srv3_title: "الامتثال الدولي", srv3_desc: "معايير جودة صارمة باستخدام النحاس منخفض الرصاص والخراطيش الممتازة. تتوافق المنتجات مع المعايير الدولية (CE, WaterMark, cUPC, ACS).",
                 flow_tag: "مخطط التعاون", flow_title: "من الرسم إلى التسليم في جميع أنحاء العالم",
                 step1_title: "المتطلبات", step1_desc: "تأكيد الموديل، الرسومات، المواصفات الفنية، والشهادات المستهدفة.",
-                step2_title: "أخذ عينات سريعة", step2_desc: "يتم الانتهاء منها في غضون 7-15 يومًا للاختبار البدني والتحقق من قبل العميل.",
+                step2_title: "أخذ عينات سريعة", step2_desc: "يتم الانتهاء منها في غضon 7-15 يومًا للاختبار البدني والتحقق من قبل العميل.",
                 step3_title: "التصنيع بالجملة", step3_desc: "تصنيع دقيق قابل للتطوير بدرجة كبيرة، طلاء متعدد الطبقات، وتجميع.",
                 step4_title: "الشحن العالمي", step4_desc: "اختبار صارم للمياه/الهواء، تعبئة صالحة للإبحار، خدمات لوجستية DDP/FOB/CIF.",
                 banner_title: "هل أنت مستعد لتنمية أعمالك؟",
@@ -819,7 +827,7 @@
                 banner_btn: "أرسل استفسارك الآن",
                 footer_desc: "شريكك الموثوق لتصنيع الأدوات الصحية B2B. متخصصون في تركيبات العتاد الموجهة بالتصميم وروح العقد.",
                 footer_menu: "روابط سريعة", footer_support: "الدعم", footer_head: "المقر الرئيسي",
-                footer_address: "المرحلة 1، المنطقة A، مدينة السباكة لون تسانغ، نan'an، تشوانتشو، مقاطعة فوجيان، الصين",
+                footer_address: "المرحلة 1، المنطقة A، مدينة السباكة لون تسانغ، نانآن، تشوانتشو، مقاطعة فوجيان، الصين",
                 modal_title: "طلب تصنيع B2B", modal_name: "اسمك / شركتك",
                 modal_email: "البريد الإلكتروني", modal_msg: "التفاصيل المطلوبة (الموديل، الكمية، متطلبات OEM)",
                 modal_submit: "إرسال الطلب"
@@ -852,7 +860,7 @@
                 srv_hero_title: "Soluciones de Fabricación OEM y ODM",
                 srv_hero_desc: "Aprovechando más de 20 años de I+D en sanitarios y una ubicación privilegiada en la principal de China para ofrecer accesorios personalizados en todo el mundo.",
                 srv_tag: "Capacidades de Personalización", srv_title: "Personalización Industrial en un Solo Lugar",
-                srv1_title: "Diseño y Prototipado 3D", srv1_desc: "Nuestro equipo profesional de I+D integra las tendencias de diseño globales para construir herrajes de baño altamente funcionales, proporcionando planos de ingeniería en 3D rápidos.",
+                srv1_title: "Diseño y Prototipado 3D", srv1_desc: "Our professional R&D team integrates global design trends to build highly functional bathroom hardware, providing quick 3D engineering blueprints.",
                 srv2_title: "Opciones Flexibles de OEM/ODM", srv2_desc: "Grabado de marca personalizado, acabados de galvanoplastia únicos (negro mate, oro cepillado PVD, cromo), roscas personalizadas y límites de flujo a medida.",
                 srv3_title: "Cumplimiento Internacional", srv3_desc: "Estrictos estándares de calidad utilizando latón bajo en plomo y cartuchos de primera calidad. Los productos cumplen con las normas internacionales (CE, WaterMark, cUPC, ACS).",
                 flow_tag: "Flujo de Cooperación", flow_title: "Desde el Dibujo Hasta la Entrega Global",
@@ -895,15 +903,11 @@
             }
         };
 
-        // Active State
         let currentLang = 'en';
 
-        // Switch site language
         function switchLanguage(lang) {
             currentLang = lang;
             document.documentElement.lang = lang;
-            
-            // RTL handling
             if (lang === 'ar') {
                 document.documentElement.dir = 'rtl';
                 document.getElementById('main-header').style.direction = 'rtl';
@@ -911,52 +915,32 @@
                 document.documentElement.dir = 'ltr';
                 document.getElementById('main-header').style.direction = 'ltr';
             }
-
-            const langLabels = {
-                en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt"
-            };
+            const langLabels = { en: "English", ar: "العربية", zh: "简体中文", de: "Deutsch", es: "Español", vi: "Tiếng Việt" };
             document.getElementById('current-lang').textContent = langLabels[lang];
-
-            // Localize statutory text
-            const elements = document.querySelectorAll('[data-tr]');
-            elements.forEach(el => {
+            document.querySelectorAll('[data-tr]').forEach(el => {
                 const key = el.getAttribute('data-tr');
-                if (translation[lang][key]) {
-                    el.textContent = translation[lang][key];
-                }
+                if (translation[lang][key]) el.textContent = translation[lang][key];
             });
         }
 
-        // Header scroll styles
         window.addEventListener('scroll', () => {
             const header = document.getElementById('main-header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
         });
 
-        // Modular Modal Form functions
-        function openModal() {
-            document.getElementById('inquiry-modal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('inquiry-modal').classList.remove('active');
-        }
+        function openModal() { document.getElementById('inquiry-modal').classList.add('active'); }
+        function closeModal() { document.getElementById('inquiry-modal').classList.remove('active'); }
 
         function submitInquiry(event) {
             event.preventDefault();
             const submitBtn = event.target.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending Inquiry...";
+            submitBtn.textContent = currentLang === 'zh' ? "正在发送..." : "Sending...";
             submitBtn.disabled = true;
-
             setTimeout(() => {
-                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted Successfully!";
+                submitBtn.textContent = currentLang === 'zh' ? "✓ 发送成功！" : "✓ Submitted!";
                 submitBtn.style.backgroundColor = "#07C160";
-                
                 setTimeout(() => {
                     closeModal();
                     event.target.reset();
